@@ -66,5 +66,9 @@ describe Bibliografia do
      expect(@libro.fecha_publicacion).to eq("(July 7, 2013)") 
    end
    
+   it "Existe un método para obtener el listado ISBN" do
+     expect(@libro.num_isbns).to eq(["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])
+   end
+   
    
 end   
