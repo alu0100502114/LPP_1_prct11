@@ -7,7 +7,8 @@ describe Bibliografia do
         ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
         "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
         "(The Facets of Ruby)",
-	    "Pragmatic Bookshelf"
+	    "Pragmatic Bookshelf",
+	    "4 edition"
 	)
    end
    
@@ -25,6 +26,10 @@ describe Bibliografia do
    
    it "debe existir una editorial" do
      expect(@libro.editorial).not_to be_nil
+   end
+
+   it "debe existir un número de edición" do
+     expect(@libro.num_edicion).not_to be_nil
    end
    
 end
