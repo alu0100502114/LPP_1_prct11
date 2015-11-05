@@ -44,12 +44,7 @@ module Bibliografia
 
     # Para método puts
     def to_s
-      "#{print_autor}
-       #{titulo}
-       #{serie}
-       #{editorial}; #{num_edicion} (#{fecha_publicacion})
-       #{print_isbn}
-      "
+      "#{print_autor}\n#{titulo}\n#{serie}\n#{editorial}; #{num_edicion} (#{fecha_publicacion})\n#{print_isbn}"
     end
   end
 end
