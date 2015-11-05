@@ -6,15 +6,16 @@ module Bibliografia
   # Clase Referencia para gestionar las de una Bibliografía
   class Referencia
     # Getters + Setters
-    attr_accessor :autores, :titulo, :serie, :editorial, :num_edicion
+    attr_accessor :autores, :titulo, :serie, :editorial, :num_edicion, :fecha_publicacion
 
     # Constructor
-    def initialize(autores, titulo, serie, editorial, num_edicion)
+    def initialize(autores, titulo, serie, editorial, num_edicion, fecha_publicacion)
       @autores = autores
       @titulo = titulo
       @serie = serie
       @editorial = editorial
       @num_edicion = num_edicion
+      @fecha_publicacion = fecha_publicacion
     end
 
     # Muestra un autor de la lista
@@ -33,7 +34,7 @@ module Bibliografia
       "#{print_autor}\n
        #{titulo}\n
        #{serie}\n
-       #{editorial}; #{num_edicion} 
+       #{editorial}; #{num_edicion} (#{fecha_publicacion})\n
       "
     end
   end
