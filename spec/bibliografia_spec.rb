@@ -10,7 +10,7 @@ describe Bibliografia do
 	    "Pragmatic Bookshelf",
 	    "4 edition",
 	    "(July 7, 2013)",
-	    [" 968-1937785499", "1937785491"]
+	    ["968-1937785499", "1937785491"]
 	)
    end
    
