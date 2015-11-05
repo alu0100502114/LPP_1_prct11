@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'Bibliografia/version'
+require 'bibliografia/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "Bibliografia"
   spec.version       = Bibliografia::VERSION
-  spec.authors       = ["alu0100502107"]
-  spec.email         = ["alu0100502107@ull.edu.es"]
+  spec.authors       = ["alu0100502107", "alu0100502114"]
+  spec.email         = ["alu0100502107@ull.edu.es", "alu0100502114@ull.edu.es"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Práctica 6 de LPP.}
+  spec.description   = %q{Referencias en una Bibliografía}
+  spec.homepage      = "https://bitbucket.org/jesus_marin/lpp_1_prct06"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
