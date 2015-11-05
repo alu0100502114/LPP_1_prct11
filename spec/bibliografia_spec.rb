@@ -8,7 +8,8 @@ describe Bibliografia do
         "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
         "(The Facets of Ruby)",
 	    "Pragmatic Bookshelf",
-	    "4 edition"
+	    "4 edition",
+	    "(July 7, 2013)",
 	)
    end
    
@@ -30,6 +31,10 @@ describe Bibliografia do
 
    it "debe existir un número de edición" do
      expect(@libro.num_edicion).not_to be_nil
+   end
+   
+   it "debe existir una fecha de publicación" do
+     expect(@libro.fecha_publicacion).not_to be_nil
    end
    
 end
