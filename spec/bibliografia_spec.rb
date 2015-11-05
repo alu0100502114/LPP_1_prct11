@@ -43,7 +43,11 @@ describe Bibliografia do
    end
    
    it "debe existir un método para obtener el listado de autores" do
-      @libro.print_autor.should eq("Dave Thomas, Andy Hunt, Chad Fowler")
+     expect(@libro.print_autor).to eq("Dave Thomas, Andy Hunt, Chad Fowler")
+   end
+   
+   it "Existe método para obtener el titulo" do
+     expect(@libro.titulo).to eq("Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide")
    end
    
 end   
