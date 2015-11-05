@@ -10,7 +10,7 @@ describe Bibliografia do
    end
    
    it "Deben existir uno o más autores" do
-     @libro.autores.should_not nil
+     @libro.autores.size.should be >= 1
    end
    
 end
