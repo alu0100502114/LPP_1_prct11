@@ -10,6 +10,7 @@ describe Bibliografia do
 	    "Pragmatic Bookshelf",
 	    "4 edition",
 	    "(July 7, 2013)",
+	    ["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"]
 	)
    end
    
@@ -37,4 +38,8 @@ describe Bibliografia do
      expect(@libro.fecha_publicacion).not_to be_nil
    end
    
-end
+   it "debe existir uno o más números ISBN" do
+     expect(@libro.num_isbns).not_to be_empty 
+   end
+   
+end   
