@@ -10,7 +10,7 @@ describe Bibliografia do
 	    "Pragmatic Bookshelf",
 	    "4 edition",
 	    "(July 7, 2013)",
-	    ["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"]
+	    ["968-81937785499", "1937785491"]
 	)
    end
    
@@ -67,7 +67,7 @@ describe Bibliografia do
    end
    
    it "Existe un método para obtener el listado ISBN" do
-     expect(@libro.num_isbns).to eq(["ISBN-13: 978-1937785499", "ISBN-10: 1937785491"])
+     expect(@libro.print_isbn).to eq(["ISBN-13: 968-1937785499\nISBN-10: 1937785491"])
    end
    
    
