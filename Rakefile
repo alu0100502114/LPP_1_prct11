@@ -7,20 +7,20 @@ task :default => :spec
 
 desc "Ejecutar build"
 task :build do
-  sh "gem build Bibliografia.gemspec"
+  sh "gem build bibliografia.gemspec"
 end
 
 desc "Ejecutar la gema"
 task :install do
-    sh "gem icd ./install ./Bibliografia-0.1.0.gem"
+    sh "gem icd ./install ./bibliografia-0.1.0.gem"
 end
 
 desc "Ejecutar con RubyGems"
 task :release do
-  sh "gem build Bibliografia.gemspec"
+  sh "gem build bibliografia.gemspec"
 end
 
-desc "Ejecutar las espectativas de la clase Bibliografia"
+desc "Ejecutar las espectativas de la clase bibliografia"
 task :spec do
   sh "rspec -I. spec/bibliografia_spec.rb"
 end
