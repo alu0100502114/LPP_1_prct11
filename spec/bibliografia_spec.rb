@@ -60,6 +60,11 @@ describe Bibliografia do
    
    it "Existe un método para obtener el número de edición" do
      expect(@libro.num_edicion).to eq("4 edition") 
-end
+   end
+   
+   it "Existe un método para obtener la fecha de publicación" do
+     expect(@libro.fecha_publicacion).to eq("(July 7, 2013)") 
+   end
+   
    
 end   
