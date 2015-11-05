@@ -58,4 +58,8 @@ describe Bibliografia do
      expect(@libro.editorial).to eq("Pragmatic Bookshelf")     
    end
    
+   it "Existe un método para obtener el número de edición" do
+     expect(@libro.num_edicion).to eq("4 edition") 
+end
+   
 end   
