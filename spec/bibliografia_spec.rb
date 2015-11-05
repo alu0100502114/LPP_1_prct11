@@ -4,9 +4,10 @@ describe Bibliografia do
   
   before :each do
       @libro = Bibliografia::Referencia.new(
-        ["Dave Thomas", "Andy Hunt", "Chad Fowler"],
+        ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
         "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
-        "(The Facets of Ruby)"
+        "(The Facets of Ruby)",
+	    "Pragmatic Bookshelf"
 	)
    end
    
@@ -21,4 +22,9 @@ describe Bibliografia do
    it "debe de existir una serie" do
      expect(@libro.serie).not_to be_nil
    end
+   
+   it "debe existir una editorial" do
+     expect(@libro.editorial).not_to be_nil
+   end
+   
 end
