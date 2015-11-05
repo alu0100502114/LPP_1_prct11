@@ -54,4 +54,8 @@ describe Bibliografia do
      expect(@libro.serie).to eq("(The Facets of Ruby)") 
    end
    
+   it "Existe un método que devuelve la editorial" do
+     expect(@libro.editorial).to eq("Pragmatic Bookshelf")     
+   end
+   
 end   
