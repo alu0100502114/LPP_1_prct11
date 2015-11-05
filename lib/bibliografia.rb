@@ -19,7 +19,7 @@ module Bibliografia
       @num_isbns = num_isbns
     end
 
-    # Muestra un autor de la lista
+    # Muestra lista de autores
     def print_autor
       count = 0
       lista = ""
@@ -33,11 +33,11 @@ module Bibliografia
 
     # Muestra lista de isbn
     def print_isbn
-      count = 0
       lista = ""
-      isbns.each do |isbn|
-        lista += "ISBN-" + isbn.size + ": " + isbn
-        lista += "\n" if ++count != isbns.size
+      num_isbns.each do |isbn|
+        count = 0
+        lista += "ISBN-" + isbn.delete('^0-9').size.to_s + ": " + isbn
+        lista += "\n" if count != num_isbns.size
       end
       lista
     end
