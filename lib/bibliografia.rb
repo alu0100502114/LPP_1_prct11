@@ -24,8 +24,9 @@ module Bibliografia
       count = 0
       lista = ""
       autores.each do |autor|
+        count += 1
         lista += autor
-        lista += ", " if ++count != autores.size
+        lista += ", " if count != autores.size
       end
       lista
     end
