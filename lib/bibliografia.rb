@@ -6,17 +6,11 @@ module Bibliografia
   # Clase Referencia para gestionar las de una Bibliografía
   class Referencia
     # Getters + Setters
-    attr_accessor :autores, :titulo, :serie, :editorial, :num_edicion, :fecha_publicacion, :num_isbns
+    attr_accessor :autores
 
     # Constructor
-    def initialize(autores, titulo, serie, editorial, num_edicion, fecha_publicacion, num_isbns)
+    def initialize(autores)
       @autores = autores
-      @titulo = titulo
-      @serie = serie
-      @editorial = editorial
-      @num_edicion = num_edicion
-      @fecha_publicacion = fecha_publicacion
-      @num_isbns = num_isbns
     end
 
     # Muestra un autor de la lista
@@ -30,25 +24,9 @@ module Bibliografia
       lista
     end
 
-    # Muestra lista de isbn
-    def print_isbn
-      count = 0
-      lista = ""
-      isbns.each do |isbn|
-        lista += "ISBN-" + isbn.size + ": " + isbn
-        lista += "\n" if ++count != isbns.size
-      end
-      lista
-    end
-
     # Para método puts
     def to_s
-      "#{print_autor}\n
-       #{titulo}\n
-       #{serie}\n
-       #{editorial}; #{edicion} (#{fecha_publicacion})\n
-       #{print_isbn}\n
-      "
+      "#{print_autor}\n"
     end
   end
 end
