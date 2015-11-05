@@ -3,7 +3,7 @@ require "rspec/core/rake_task"
 
 RSpec::Core::RakeTask.new(:spec)
 
-task :default => :spec
+task :default => :spec2
 
 desc "Ejecutar build"
 task :build do
@@ -21,6 +21,6 @@ task :release do
 end
 
 desc "Ejecutar las espectativas de la clase bibliografia"
-task :spec do
+task :spec2 do
   sh "rspec -I. spec/bibliografia_spec.rb"
 end
