@@ -42,4 +42,8 @@ describe Bibliografia do
      expect(@libro.num_isbns).not_to be_empty 
    end
    
+   it "debe existir un método para obtener el listado de autores" do
+      @libro.print_autor.should eq("Dave Thomas, Andy Hunt, Chad Fowler")
+   end
+   
 end   
