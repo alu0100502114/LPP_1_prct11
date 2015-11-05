@@ -50,4 +50,8 @@ describe Bibliografia do
      expect(@libro.titulo).to eq("Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide")
    end
    
+   it "Existe un método para obtener la serie" do
+     expect(@libro.serie).to eq("(The Facets of Ruby)") 
+   end
+   
 end   
