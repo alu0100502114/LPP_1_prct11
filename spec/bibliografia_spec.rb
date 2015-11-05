@@ -67,7 +67,7 @@ describe Bibliografia do
    end
    
    it "Existe un método para obtener el listado ISBN" do
-     expect(@libro.print_isbn).to eq(["ISBN-13: 968-1937785499\nISBN-10: 1937785491"])
+     expect(@libro.print_isbn).to eq("ISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
    end
    
 end   
