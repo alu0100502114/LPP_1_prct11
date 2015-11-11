@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["alu0100502107", "alu0100502114"]
   spec.email         = ["alu0100502107@ull.edu.es", "alu0100502114@ull.edu.es"]
 
-  spec.summary       = %q{Práctica 6 de LPP.}
-  spec.description   = %q{Referencias en una Bibliografía}
-  spec.homepage      = "https://bitbucket.org/jesus_marin/lpp_1_prct06"
+  spec.summary       = %q{Práctica 7 de LPP.}
+  spec.description   = %q{Referencias en una Bibliografía en una Lista enlazada}
+  spec.homepage      = "https://bitbucket.org/jesus_marin/lpp_1_prct07"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
