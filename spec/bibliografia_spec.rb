@@ -75,5 +75,24 @@ describe Bibliografia do
          expect(@libro.to_s).to eq ("Dave Thomas, Andy Hunt, Chad Fowler\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
       end
    end # context
+    
+   context "Nodo" do
+      before :all do
+         @libro = Bibliografia::Referencia.new(
+                   ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
+                   "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
+                   "(The Facets of Ruby)",
+                   "Pragmatic Bookshelf",
+                   "4 edition",
+                   "(July 7, 2013)",
+                   ["968-1937785499", "1937785491"]
+                   )
+         @nudo = Node.new(@libro)
+      end
+      
+       it "deben de existir un nodo conteniendo libro de '4 edition'" do
+         expect(@nudo.value.num_edicion).to eq("4 edition")
+      end
+   end # context
    
 end # describe
