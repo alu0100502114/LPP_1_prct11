@@ -161,6 +161,14 @@ describe Bibliografia do
 
       end # end before
 
+      it "Cada elemento de la lista debe de ser un Nodo con un libro" do
+         e = @lista.head
+         while e.next != nil
+            expect(e.value.is_a? Bibliografia::Referencia).to eq(true)
+            e = e.next
+         end
+      end
+      
       it "Cada elemento de la lista debe de ser un Nodo con un libro con Título" do
          e = @lista.head
          while e.next != nil
@@ -182,6 +190,7 @@ describe Bibliografia do
       it "La lista debe de medir 5" do
          expect(@lista.length).to eq(5)
       end
+
    end # context lista
    
 end # describe
