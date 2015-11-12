@@ -72,7 +72,7 @@ class List
     num
   end
   
-  # Extra primer elemento
+  # Extrae primer elemento
   def extract_first
     e = @head
     @head = e.next
