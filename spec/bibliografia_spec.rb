@@ -12,7 +12,7 @@ describe Bibliografia do
                    "4 edition",
                    "(July 7, 2013)",
                    ["968-1937785499", "1937785491"]
-                   )
+         )
       end
 
       it "deben de existir uno o más autores" do
@@ -74,7 +74,7 @@ describe Bibliografia do
       it "Existe un método para obtener la referencia formateada" do
          expect(@libro.to_s).to eq ("Dave Thomas, Andy Hunt, Chad Fowler\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
       end
-   end # context
+   end # context referencia
     
    context "Nodo" do
       before :all do
@@ -86,13 +86,90 @@ describe Bibliografia do
                    "4 edition",
                    "(July 7, 2013)",
                    ["968-1937785499", "1937785491"]
-                   )
+          )
          @nudo = Node.new(@libro)
       end
       
-       it "deben de existir un nodo conteniendo libro de '4 edition'" do
+      it "deben de existir un nodo conteniendo libro de '4 edition'" do
          expect(@nudo.value.num_edicion).to eq("4 edition")
       end
-   end # context
+
+      it "Existe un método en Nodo para obtener la referencia formateada" do
+         expect(@nudo.to_s).to eq ("Dave Thomas, Andy Hunt, Chad Fowler\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
+      end
+
+   end # context nodo
+   
+   context "Lista Enlazada" do
+      before :all do
+         @libro1 = Bibliografia::Referencia.new(
+            ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
+            "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
+            "(The Facets of Ruby)",
+            "Pragmatic Bookshelf",
+            "4 edition",
+            "(July 7, 2013)",
+            ["968-1937785499", "1937785491"]
+         )
+
+         @libro2 = Bibliografia::Referencia.new(
+            ["Scott Chacon"],
+            "Pro Git 2009th Edition",
+            "(Pro)",
+            "Apress",
+            "2009 edition",
+            "(August 27, 2009)",
+            ["978-1430218333", "1430218339"]
+         )
+         
+         @libro3 = Bibliografia::Referencia.new(
+            ["David Flanagan", "Yukihiro Matsumoto"],
+            "The Ruby Programming Language",
+            "",
+            "O’Reilly Media",
+            "1 edition",
+            "(February 4, 2008)",
+            ["0596516177", "978-0596516178"]
+         )
+         
+         @libro4 = Bibliografia::Referencia.new(
+            ["David Chelimsky", "Dave Astels", "Bryan Helmkamp", "Dan North", "Zach Dennis", "Aslak Hellesoy"],
+            "The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends",
+            "(The Facets of Ruby)",
+            "Pragmatic Bookshelf",
+            "1 edition",
+            "(December 25, 2010)",
+            ["1934356379", "978-1934356371"]
+         )
+         
+         @libro5 = Bibliografia::Referencia.new(
+            ["Richard E. Silverman"],
+            "Git Pocket Guide",
+            "",
+            "O’Reilly Media",
+            "1 edition",
+            "(August 2, 2013)",
+            ["1449325866", "978-1449325862"]
+         )
+         
+         @lista = List.new
+         @lista.ins_start(@libro1)
+         @lista.ins_end(@libro2)
+         @lista.ins_end(@libro3)
+         @lista.ins_end(@libro4)
+         @lista.ins_end(@libro5)
+
+      end # end before
+
+      it "Cada elemento de la lista debe de ser un Nodo con un libro" do
+         e = @lista.head
+         while e.next != nil
+            expect(e.value.titulo).not_to be_empty
+            e = e.next
+         end
+         expect(e.value.titulo).not_to be_empty
+      end
+
+   end # context lista
    
 end # describe
