@@ -161,7 +161,7 @@ describe Bibliografia do
 
       end # end before
 
-      it "Cada elemento de la lista debe de ser un Nodo con un libro" do
+      it "Cada elemento de la lista debe de ser un Nodo con un libro con Título" do
          e = @lista.head
          while e.next != nil
             expect(e.value.titulo).not_to be_empty
@@ -170,6 +170,14 @@ describe Bibliografia do
          expect(e.value.titulo).not_to be_empty
       end
 
+      it "Cada elemento de la lista debe de ser un Nodo con un libro con Autor(es)" do
+         e = @lista.head
+         while e.next != nil
+            expect(e.value.autores).not_to be_empty
+            e = e.next
+         end
+         expect(e.value.autores).not_to be_empty
+      end
    end # context lista
    
 end # describe
