@@ -161,6 +161,13 @@ describe Bibliografia do
 
       end # end before
 
+      it "Se puede insertar un elemento por el inicio" do
+         @lista.ins_start(@libro1)
+         expect(@lista.head.is_a? Node).to eq(true)
+         expect(@lista.head.value.is_a? Bibliografia::Referencia).to eq(true)
+         expect(@lista.head.value.titulo).to eq("Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide")
+      end
+      
       it "Debe existir cada Nodo de la lista con sus datos y su siguiente" do
          e = @lista.head
          while e.next != nil
