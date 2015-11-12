@@ -153,12 +153,6 @@ describe Bibliografia do
          )
          
          @lista = List.new
-         @lista.ins_start(@libro1)
-         @lista.ins_end(@libro2)
-         @lista.ins_end(@libro3)
-         @lista.ins_end(@libro4)
-         @lista.ins_end(@libro5)
-
       end # end before
 
       it "Se puede insertar un elemento por el inicio" do
@@ -166,6 +160,14 @@ describe Bibliografia do
          expect(@lista.head.is_a? Node).to eq(true)
          expect(@lista.head.value.is_a? Bibliografia::Referencia).to eq(true)
          expect(@lista.head.value.titulo).to eq("Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide")
+      end
+ 
+      it "Se pueden añadir varios elementos por el final" do
+         @lista.ins_end(@libro2)
+         @lista.ins_end(@libro3)
+         @lista.ins_end(@libro4)
+         @lista.ins_end(@libro5)
+         expect(@lista.length).to eq(5)
       end
       
       it "Debe existir cada Nodo de la lista con sus datos y su siguiente" do
@@ -206,14 +208,15 @@ describe Bibliografia do
          expect(e.value.autores).not_to be_empty
       end
       
-      it "La lista debe de medir 5" do
-         expect(@lista.length).to eq(5)
-      end
-      
       it "El segundo elemento de la lista es Libro2" do
          e = @lista.head
          e = @lista.head.next
          expect(e.value.to_s).to eq(@libro2.to_s)
+      end
+      
+      it "Se extrae el primer elemento de la lista" do
+         e = @lista.get_first
+         expect(e.value.to_s).to eq(@libro1.to_s)
       end
    end # context lista
    
