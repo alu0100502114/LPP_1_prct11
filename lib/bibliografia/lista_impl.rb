@@ -11,7 +11,7 @@ Node = Struct.new(:value, :next) do
     if @next == nil
       "#{value}" 
     else 
-      "#{value} <->" 
+      "#{value}\n<->\n" 
     end
   end
   

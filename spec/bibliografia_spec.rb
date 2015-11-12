@@ -161,6 +161,18 @@ describe Bibliografia do
 
       end # end before
 
+      it "Debe existir cada Nodo de la lista con sus datos y su siguiente" do
+         e = @lista.head
+         while e.next != nil
+            expect(e.is_a? Node).to eq(true)
+            expect(e.value.is_a? Bibliografia::Referencia).to eq(true)
+            expect(e.next.is_a? Node).to eq(true)
+            e = e.next
+         end
+         expect(e.is_a? Node).to eq(true)
+         expect(e.value.is_a? Bibliografia::Referencia).to eq(true)
+      end
+
       it "Cada elemento de la lista debe de ser un Nodo con un libro" do
          e = @lista.head
          while e.next != nil
