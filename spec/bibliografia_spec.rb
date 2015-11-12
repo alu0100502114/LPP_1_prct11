@@ -214,8 +214,13 @@ describe Bibliografia do
          expect(e.value.to_s).to eq(@libro2.to_s)
       end
       
+      it "Debe de existir una lista con su cabeza" do
+         e = @lista.head
+         expect(e.value.to_s).to eq(@libro1.to_s)
+      end
+            
       it "Se extrae el primer elemento de la lista" do
-         e = @lista.get_first
+         e = @lista.extract_first
          expect(e.value.to_s).to eq(@libro1.to_s)
       end
    end # context lista
