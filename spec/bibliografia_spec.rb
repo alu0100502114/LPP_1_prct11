@@ -190,7 +190,12 @@ describe Bibliografia do
       it "La lista debe de medir 5" do
          expect(@lista.length).to eq(5)
       end
-
+      
+      it "El segundo elemento de la lista es Libro2" do
+         e = @lista.head
+         e = @lista.head.next
+         expect(e.value.to_s).to eq(@libro2.to_s)
+      end
    end # context lista
    
 end # describe
