@@ -86,4 +86,19 @@ class List
     end
   end
 
+  # Número de nodos de una lista
+  def length 
+    if @head == nil
+      num = 0
+    else
+      n = @head
+      num = 1
+      while n.next != nil
+        num += 1
+        n = n.next
+      end
+    end
+    num
+  end
+  
 end
