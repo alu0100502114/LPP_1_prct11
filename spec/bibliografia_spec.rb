@@ -401,6 +401,10 @@ describe Bibliografia do
          @lista.ins_end(@libro2)
          expect(@lista.length).to eq(5)
       end
+            
+      it "El último elemento de la lista es un libro" do
+         expect(@lista.tail.value.tipo).to eq(:libro)
+      end
       
    end # context lista2
    
