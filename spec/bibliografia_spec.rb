@@ -367,6 +367,12 @@ describe Bibliografia do
          expect(e.value.to_s).to eq(@libro1.to_s)
          expect(@lista.length).to eq(4)
       end
+            
+      it "Se extrae el último elemento de la lista" do
+         e = @lista.extract_last
+         expect(e.value.to_s).to eq(@libro5.to_s)
+         expect(@lista.length).to eq(3)
+      end
       
    end # context lista2
    

@@ -38,6 +38,24 @@ class List2 < List
   def extract_first
     e = @head
     @head = e.next
+    if @head != nil
+      @head.prev = nil
+    else
+      @tail = @head
+    end
     e
   end  
+  
+  # Extrae último elemento
+  def extract_last
+    e = @tail
+    @tail = e.prev
+    if @tail != nil
+      @tail.next = nil
+    else
+      @head = @tail
+    end
+    e
+  end  
+
 end
