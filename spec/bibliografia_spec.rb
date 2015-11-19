@@ -319,7 +319,43 @@ describe Bibliografia do
          expect(e.is_a? Node).to eq(true)
          expect(e.value.is_a? Bibliografia::Referencia).to eq(true)
       end
+
+      it "Cada elemento de la lista debe de ser un Nodo con un libro" do
+         e = @lista.head
+         while e.next != nil
+            expect(e.value.is_a? Bibliografia::Referencia).to eq(true)
+            e = e.next
+         end
+      end
       
+      it "Cada elemento de la lista debe de ser un Nodo con un libro con Título" do
+         e = @lista.head
+         while e.next != nil
+            expect(e.value.titulo).not_to be_empty
+            e = e.next
+         end
+         expect(e.value.titulo).not_to be_empty
+      end
+
+      it "Cada elemento de la lista debe de ser un Nodo con un libro con Autor(es)" do
+         e = @lista.head
+         while e.next != nil
+            expect(e.value.autores).not_to be_empty
+            e = e.next
+         end
+         expect(e.value.autores).not_to be_empty
+      end
+      
+      it "El segundo elemento de la lista es Libro2" do
+         e = @lista.head
+         e = @lista.head.next
+         expect(e.value.to_s).to eq(@libro2.to_s)
+      end
+      
+      it "Debe de existir una lista con su cabeza" do
+         e = @lista.head
+         expect(e.value.to_s).to eq(@libro1.to_s)
+      end      
    end # context lista2
    
 end # describe
