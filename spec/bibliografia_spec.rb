@@ -300,6 +300,42 @@ describe Bibliografia do
             nil
          )
          
+         @pub1 = Bibliografia::Publicacion.new(
+            ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
+            "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
+            "(The Facets of Ruby)",
+            "Pragmatic Bookshelf",
+            "4 edition",
+            "(July 7, 2013)",
+            ["968-1937785499", "1937785491"],
+            :publicacion_periodica,
+            :articulo_revista
+         )
+
+         @pub2 = Bibliografia::Publicacion.new(
+            ["Scott Chacon"],
+            "Pro Git 2009th Edition",
+            "(Pro)",
+            "Apress",
+            "2009 edition",
+            "(August 27, 2009)",
+            ["978-1430218333", "1430218339"],
+            nil,
+            :articulo_periodico
+         )
+
+         @pub3 = Bibliografia::Publicacion.new(
+            ["Scott Chacon"],
+            "Pro Git 2009th Edition",
+            "(Pro)",
+            "Apress",
+            "2009 edition",
+            "(August 27, 2009)",
+            ["978-1430218333", "1430218339"],
+            nil,
+            :documento_electronico
+         )
+         
          @lista = List2.new
       end # end before
       
@@ -405,7 +441,13 @@ describe Bibliografia do
       it "El último elemento de la lista es un libro" do
          expect(@lista.tail.value.tipo).to eq(:libro)
       end
-      
+       
+      it "Se añaden 3 publicaciones por el final" do
+         @lista.ins_end(@pub1)
+         @lista.ins_end(@pub2)
+         @lista.ins_end(@pub3)
+         expect(@lista.length).to eq(8)
+      end
    end # context lista2
    
 end # describe
