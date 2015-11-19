@@ -442,11 +442,16 @@ describe Bibliografia do
          expect(@lista.tail.value.tipo).to eq(:libro)
       end
        
-      it "Se añaden 3 publicaciones por el final" do
+      it "Se añaden 3 publicaciones distintas por el final" do
          @lista.ins_end(@pub1)
          @lista.ins_end(@pub2)
          @lista.ins_end(@pub3)
          expect(@lista.length).to eq(8)
+      end
+            
+      it "El último elemento de la lista es una Publicación Periódica de Documento eletrónico" do
+         expect(@lista.tail.value.tipo).to eq(:publicacion_periodica)
+         expect(@lista.tail.value.subtipo).to eq(:documento_electronico)
       end
    end # context lista2
    
