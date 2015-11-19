@@ -46,4 +46,43 @@ module Bibliografia
       "#{print_autor}\n#{titulo}\n#{serie}\n#{editorial}; #{num_edicion} #{fecha_publicacion}\n#{print_isbn}"
     end
   end
+  
+  # Tipos Libros hijos de Referencia
+  class Libro < Referencia
+    # Getters + Setters
+    attr_reader :tipo
+    
+    # Constructor
+    def initialize(*referencia, tipo)
+      @tipo = tipo
+      if tipo == nil
+        @tipo = :libro
+      end
+      super(*referencia)
+    end
+  end
+  
+  # Tipos Publicaciones hijos de Referencia
+  class Publicacion < Referencia
+    # Getters + Setters
+    # El tipo es :publicacion_periodica por defecto
+    # El subtipo puede ser:
+    #   :articulo_revista
+    #   :articulo_periodico
+    #   :documento_electronico por defecto
+    attr_reader :tipo, :subtipo
+    
+    # Constructor
+    def initialize(*referencia, tipo, subtipo)
+      @tipo = tipo
+      if @tipo == nil
+        @tipo = :publicacion_periodica
+      end
+      @subtipo = subtipo
+      if @subtipo == nil
+        @subtipo = :documento_electronico
+      end
+    end
+  end
+  
 end

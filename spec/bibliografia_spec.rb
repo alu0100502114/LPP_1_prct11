@@ -228,7 +228,7 @@ describe Bibliografia do
    
    context "Lista Doblemente Enlazada" do
       before :all do
-         @libro1 = Bibliografia::Referencia.new(
+         @ref1 = Bibliografia::Referencia.new(
             ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
             "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
             "(The Facets of Ruby)",
@@ -238,7 +238,7 @@ describe Bibliografia do
             ["968-1937785499", "1937785491"]
          )
 
-         @libro2 = Bibliografia::Referencia.new(
+         @ref2 = Bibliografia::Referencia.new(
             ["Scott Chacon"],
             "Pro Git 2009th Edition",
             "(Pro)",
@@ -248,7 +248,7 @@ describe Bibliografia do
             ["978-1430218333", "1430218339"]
          )
          
-         @libro3 = Bibliografia::Referencia.new(
+         @ref3 = Bibliografia::Referencia.new(
             ["David Flanagan", "Yukihiro Matsumoto"],
             "The Ruby Programming Language",
             "",
@@ -258,7 +258,7 @@ describe Bibliografia do
             ["0596516177", "978-0596516178"]
          )
          
-         @libro4 = Bibliografia::Referencia.new(
+         @ref4 = Bibliografia::Referencia.new(
             ["David Chelimsky", "Dave Astels", "Bryan Helmkamp", "Dan North", "Zach Dennis", "Aslak Hellesoy"],
             "The RSpec Book: Behaviour Driven Development with RSpec, Cucumber, and Friends",
             "(The Facets of Ruby)",
@@ -268,7 +268,7 @@ describe Bibliografia do
             ["1934356379", "978-1934356371"]
          )
          
-         @libro5 = Bibliografia::Referencia.new(
+         @ref5 = Bibliografia::Referencia.new(
             ["Richard E. Silverman"],
             "Git Pocket Guide",
             "",
@@ -278,21 +278,43 @@ describe Bibliografia do
             ["1449325866", "978-1449325862"]
          )
          
+         @libro1 = Bibliografia::Libro.new(
+            ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
+            "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
+            "(The Facets of Ruby)",
+            "Pragmatic Bookshelf",
+            "4 edition",
+            "(July 7, 2013)",
+            ["968-1937785499", "1937785491"],
+            :libro
+         )
+
+         @libro2 = Bibliografia::Libro.new(
+            ["Scott Chacon"],
+            "Pro Git 2009th Edition",
+            "(Pro)",
+            "Apress",
+            "2009 edition",
+            "(August 27, 2009)",
+            ["978-1430218333", "1430218339"],
+            nil
+         )
+         
          @lista = List2.new
       end # end before
       
       it "Se puede insertar un elemento por el inicio" do
-         @lista.ins_start(@libro1)
+         @lista.ins_start(@ref1)
          expect(@lista.head.is_a? Node).to eq(true)
          expect(@lista.head.value.is_a? Bibliografia::Referencia).to eq(true)
          expect(@lista.head.value.titulo).to eq("Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide")
       end
  
       it "Se pueden añadir varios elementos por el final" do
-         @lista.ins_end(@libro2)
-         @lista.ins_end(@libro3)
-         @lista.ins_end(@libro4)
-         @lista.ins_end(@libro5)
+         @lista.ins_end(@ref2)
+         @lista.ins_end(@ref3)
+         @lista.ins_end(@ref4)
+         @lista.ins_end(@ref5)
          expect(@lista.length).to eq(5)
       end
       
@@ -320,7 +342,7 @@ describe Bibliografia do
          expect(e.value.is_a? Bibliografia::Referencia).to eq(true)
       end
 
-      it "Cada elemento de la lista debe de ser un Nodo con un libro" do
+      it "Cada elemento de la lista debe de ser un Nodo con un ref" do
          e = @lista.head
          while e.next != nil
             expect(e.value.is_a? Bibliografia::Referencia).to eq(true)
@@ -328,7 +350,7 @@ describe Bibliografia do
          end
       end
       
-      it "Cada elemento de la lista debe de ser un Nodo con un libro con Título" do
+      it "Cada elemento de la lista debe de ser un Nodo con un ref con Título" do
          e = @lista.head
          while e.next != nil
             expect(e.value.titulo).not_to be_empty
@@ -337,7 +359,7 @@ describe Bibliografia do
          expect(e.value.titulo).not_to be_empty
       end
 
-      it "Cada elemento de la lista debe de ser un Nodo con un libro con Autor(es)" do
+      it "Cada elemento de la lista debe de ser un Nodo con un ref con Autor(es)" do
          e = @lista.head
          while e.next != nil
             expect(e.value.autores).not_to be_empty
@@ -346,32 +368,38 @@ describe Bibliografia do
          expect(e.value.autores).not_to be_empty
       end
       
-      it "El segundo elemento de la lista es Libro2" do
+      it "El segundo elemento de la lista es ref2" do
          e = @lista.head
          e = @lista.head.next
-         expect(e.value.to_s).to eq(@libro2.to_s)
+         expect(e.value.to_s).to eq(@ref2.to_s)
       end
       
       it "Debe de existir una lista con su cabeza" do
          e = @lista.head
-         expect(e.value.to_s).to eq(@libro1.to_s)
+         expect(e.value.to_s).to eq(@ref1.to_s)
       end      
       
       it "Debe de existir una lista con su cola" do
          e = @lista.tail
-         expect(e.value.to_s).to eq(@libro5.to_s)
+         expect(e.value.to_s).to eq(@ref5.to_s)
       end
             
       it "Se extrae el primer elemento de la lista" do
          e = @lista.extract_first
-         expect(e.value.to_s).to eq(@libro1.to_s)
+         expect(e.value.to_s).to eq(@ref1.to_s)
          expect(@lista.length).to eq(4)
       end
             
       it "Se extrae el último elemento de la lista" do
          e = @lista.extract_last
-         expect(e.value.to_s).to eq(@libro5.to_s)
+         expect(e.value.to_s).to eq(@ref5.to_s)
          expect(@lista.length).to eq(3)
+      end
+       
+      it "Se añaden 2 libros por el final" do
+         @lista.ins_end(@libro1)
+         @lista.ins_end(@libro2)
+         expect(@lista.length).to eq(5)
       end
       
    end # context lista2
