@@ -49,39 +49,40 @@ module Bibliografia
   
   # Tipos Libros hijos de Referencia
   class Libro < Referencia
-    # Getters + Setters
-    attr_reader :tipo
-    
     # Constructor
-    def initialize(*referencia, tipo)
-      @tipo = tipo
-      if tipo == nil
-        @tipo = :libro
-      end
+    def initialize(*referencia)
       super(*referencia)
     end
   end
   
   # Tipos Publicaciones hijos de Referencia
   class Publicacion < Referencia
-    # Getters + Setters
-    # El tipo es :publicacion_periodica por defecto
-    # El subtipo puede ser:
-    #   :articulo_revista
-    #   :articulo_periodico
-    #   :documento_electronico por defecto
-    attr_reader :tipo, :subtipo
-    
     # Constructor
-    def initialize(*referencia, tipo, subtipo)
-      @tipo = tipo
-      if @tipo == nil
-        @tipo = :publicacion_periodica
-      end
-      @subtipo = subtipo
-      if @subtipo == nil
-        @subtipo = :documento_electronico
-      end
+    def initialize(*referencia)
+      super(*referencia)
+    end
+  end
+  
+  # Artículo de Revista hijo de Tipos Publicaciones
+  class Articulo_Revista < Publicacion
+    # Constructor
+    def initialize(*referencia)
+      super(*referencia)
+    end
+  end
+  
+  # Artículo de Periódico hijo de Tipos Publicaciones
+  class Articulo_Periodico < Publicacion
+    # Constructor
+    def initialize(*referencia)
+      super(*referencia)
+    end
+  end
+  
+  # Documento electrónico hijo de Tipos Publicaciones
+  class Documento_Electronico < Publicacion
+    # Constructor
+    def initialize(*referencia)
       super(*referencia)
     end
   end

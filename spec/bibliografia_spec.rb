@@ -285,8 +285,7 @@ describe Bibliografia do
             "Pragmatic Bookshelf",
             "4 edition",
             "(July 7, 2013)",
-            ["968-1937785499", "1937785491"],
-            :libro
+            ["968-1937785499", "1937785491"]
          )
 
          @libro2 = Bibliografia::Libro.new(
@@ -296,44 +295,37 @@ describe Bibliografia do
             "Apress",
             "2009 edition",
             "(August 27, 2009)",
-            ["978-1430218333", "1430218339"],
-            nil
+            ["978-1430218333", "1430218339"]
          )
          
-         @pub1 = Bibliografia::Publicacion.new(
+         @pub1 = Bibliografia::Articulo_Revista.new(
             ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
             "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
             "(The Facets of Ruby)",
             "Pragmatic Bookshelf",
             "4 edition",
             "(July 7, 2013)",
-            ["968-1937785499", "1937785491"],
-            :publicacion_periodica,
-            :articulo_revista
+            ["968-1937785499", "1937785491"]
          )
 
-         @pub2 = Bibliografia::Publicacion.new(
+         @pub2 = Bibliografia::Articulo_Periodico.new(
             ["Scott Chacon"],
             "Pro Git 2009th Edition",
             "(Pro)",
             "Apress",
             "2009 edition",
             "(August 27, 2009)",
-            ["978-1430218333", "1430218339"],
-            nil,
-            :articulo_periodico
+            ["978-1430218333", "1430218339"]
          )
 
-         @pub3 = Bibliografia::Publicacion.new(
+         @pub3 = Bibliografia::Documento_Electronico.new(
             ["Scott Chacon"],
             "Pro Git 2009th Edition",
             "(Pro)",
             "Apress",
             "2009 edition",
             "(August 27, 2009)",
-            ["978-1430218333", "1430218339"],
-            nil,
-            :documento_electronico
+            ["978-1430218333", "1430218339"]
          )
          
          @lista = List2.new
@@ -439,7 +431,7 @@ describe Bibliografia do
       end
             
       it "El último elemento de la lista es de tipo libro" do
-         expect(@lista.tail.value.tipo).to eq(:libro)
+         expect(@lista.tail.value).to be_a Bibliografia::Libro
       end
        
       it "Se añaden 3 publicaciones distintas por el final" do
@@ -449,19 +441,22 @@ describe Bibliografia do
          expect(@lista.length).to eq(8)
       end
             
-      it "El último elemento de la lista es una Publicación Periódica de Documento eletrónico" do
-         expect(@lista.tail.value.tipo).to eq(:publicacion_periodica)
-         expect(@lista.tail.value.subtipo).to eq(:documento_electronico)
+      it "El último elemento de la lista es una Publicación Periódica de Documento electrónico" do
+         last = @lista.tail.value.class.superclass.to_s
+         expect(last).to eq("Bibliografia::Publicacion")
+         expect(@lista.tail.value).to be_a(Bibliografia::Documento_Electronico)
       end
             
       it "El penúltimo elemento de la lista es una Publicación Periódica de Artículo de Periódico" do
-         expect(@lista.tail.prev.value.tipo).to eq(:publicacion_periodica)
-         expect(@lista.tail.prev.value.subtipo).to eq(:articulo_periodico)
+         last = @lista.tail.value.class.superclass.to_s
+         expect(last).to eq("Bibliografia::Publicacion")
+         expect(@lista.tail.prev.value).to be_a(Bibliografia::Articulo_Periodico)
       end
             
       it "El antepenúltimo elemento de la lista es una Publicación Periódica de Artículo de Revista" do
-         expect(@lista.tail.prev.prev.value.tipo).to eq(:publicacion_periodica)
-         expect(@lista.tail.prev.prev.value.subtipo).to eq(:articulo_revista)
+         last = @lista.tail.value.class.superclass.to_s
+         expect(last).to eq("Bibliografia::Publicacion")
+         expect(@lista.tail.prev.prev.value).to be_a(Bibliografia::Articulo_Revista)
       end
             
       it "El último elemento de la lista es pub3" do
