@@ -356,6 +356,11 @@ describe Bibliografia do
          e = @lista.head
          expect(e.value.to_s).to eq(@libro1.to_s)
       end      
+      
+      it "Debe de existir una lista con su cola" do
+         e = @lista.tail
+         expect(e.value.to_s).to eq(@libro5.to_s)
+      end      
    end # context lista2
    
 end # describe
