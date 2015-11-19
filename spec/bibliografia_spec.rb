@@ -438,7 +438,7 @@ describe Bibliografia do
          expect(@lista.length).to eq(5)
       end
             
-      it "El último elemento de la lista es un libro" do
+      it "El último elemento de la lista es de tipo libro" do
          expect(@lista.tail.value.tipo).to eq(:libro)
       end
        
@@ -462,6 +462,11 @@ describe Bibliografia do
       it "El antepenúltimo elemento de la lista es una Publicación Periódica de Artículo de Revista" do
          expect(@lista.tail.prev.prev.value.tipo).to eq(:publicacion_periodica)
          expect(@lista.tail.prev.prev.value.subtipo).to eq(:articulo_revista)
+      end
+            
+      it "El último elemento de la lista es pub3" do
+         e = @lista.tail
+         expect(e.value.to_s).to eq(@pub3.to_s)
       end
    end # context lista2
    

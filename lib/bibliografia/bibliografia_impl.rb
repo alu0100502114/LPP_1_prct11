@@ -82,6 +82,7 @@ module Bibliografia
       if @subtipo == nil
         @subtipo = :documento_electronico
       end
+      super(*referencia)
     end
   end
   
