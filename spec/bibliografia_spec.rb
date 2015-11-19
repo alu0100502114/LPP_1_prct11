@@ -453,6 +453,16 @@ describe Bibliografia do
          expect(@lista.tail.value.tipo).to eq(:publicacion_periodica)
          expect(@lista.tail.value.subtipo).to eq(:documento_electronico)
       end
+            
+      it "El penúltimo elemento de la lista es una Publicación Periódica de Artículo de Periódico" do
+         expect(@lista.tail.prev.value.tipo).to eq(:publicacion_periodica)
+         expect(@lista.tail.prev.value.subtipo).to eq(:articulo_periodico)
+      end
+            
+      it "El antepenúltimo elemento de la lista es una Publicación Periódica de Artículo de Revista" do
+         expect(@lista.tail.prev.prev.value.tipo).to eq(:publicacion_periodica)
+         expect(@lista.tail.prev.prev.value.subtipo).to eq(:articulo_revista)
+      end
    end # context lista2
    
 end # describe
