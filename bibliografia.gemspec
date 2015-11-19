@@ -6,8 +6,8 @@ require 'bibliografia/version'
 Gem::Specification.new do |spec|
   spec.name          = "Bibliografia"
   spec.version       = Bibliografia::VERSION
-  spec.authors       = ["alu0100502107", "alu0100502114"]
-  spec.email         = ["alu0100502107@ull.edu.es", "alu0100502114@ull.edu.es"]
+  spec.authors       = ["alu0100502114"]
+  spec.email         = ["alu0100502114@ull.edu.es"]
 
   spec.summary       = %q{Práctica 8 de LPP.}
   spec.description   = %q{Referencias en una Bibliografía en una Lista enlazada de doble entrada}
