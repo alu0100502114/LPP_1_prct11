@@ -3,7 +3,6 @@
 # Nodo para Lista
 # con "value" para valor del Nodo
 #     "next" para puntero a siguiente nodo
-#     "prev" para punteo a anterior nodo
 Node = Struct.new(:value, :next) do
   
   # Mostrar por pantalla un nodo
