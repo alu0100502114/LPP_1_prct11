@@ -296,6 +296,18 @@ describe Bibliografia do
          expect(@lista.length).to eq(5)
       end
       
+      it "Debe existir cada Nodo de la lista con sus datos y su siguiente" do
+         e = @lista.head
+         while e.next != nil
+            expect(e.is_a? Node).to eq(true)
+            expect(e.value.is_a? Bibliografia::Referencia).to eq(true)
+            expect(e.next.is_a? Node).to eq(true)
+            e = e.next
+         end
+         expect(e.is_a? Node).to eq(true)
+         expect(e.value.is_a? Bibliografia::Referencia).to eq(true)
+      end
+      
    end # context lista2
    
 end # describe
