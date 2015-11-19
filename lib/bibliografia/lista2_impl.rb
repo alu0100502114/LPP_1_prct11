@@ -10,11 +10,11 @@ class List2 < List
     if @head != nil && @head.next != nil
       n = @head
       @head = Node.new(value, n, nil)
-      n.prev(@head)
+      n.prev = @head
     elsif @head != nil
       n = @head
       @head = Node.new(value, n, nil)
-      n.prev(@head)
+      n.prev = @head
       @tail = n
     else
       @head = Node.new(value, nil, nil)
@@ -27,7 +27,7 @@ class List2 < List
     if @tail != nil
       @tail = Node.new(value, nil, @tail)
       n = @tail.prev
-      n.next(@tail)
+      n.next = @tail
     else
       @head = Node.new(value, nil, nil)
       @tail = @head
