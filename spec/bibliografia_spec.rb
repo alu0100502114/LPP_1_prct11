@@ -448,13 +448,13 @@ describe Bibliografia do
       end
             
       it "El penúltimo elemento de la lista es una Publicación Periódica de Artículo de Periódico" do
-         last = @lista.tail.value.class.superclass.to_s
+         last = @lista.tail.prev.value.class.superclass.to_s
          expect(last).to eq("Bibliografia::Publicacion")
          expect(@lista.tail.prev.value).to be_a(Bibliografia::Articulo_Periodico)
       end
             
       it "El antepenúltimo elemento de la lista es una Publicación Periódica de Artículo de Revista" do
-         last = @lista.tail.value.class.superclass.to_s
+         last = @lista.tail.prev.prev.value.class.superclass.to_s
          expect(last).to eq("Bibliografia::Publicacion")
          expect(@lista.tail.prev.prev.value).to be_a(Bibliografia::Articulo_Revista)
       end
