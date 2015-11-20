@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Bibliografia do
   
-   context "Referencia bibliográfica" do
+   context "# Referencia bibliográfica" do
       before :all do
          @libro = Bibliografia::Referencia.new(
                    ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
@@ -76,7 +76,7 @@ describe Bibliografia do
       end
    end # context referencia
     
-   context "Nodo" do
+   context "# Nodo" do
       before :all do
          @libro = Bibliografia::Referencia.new(
                    ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
@@ -100,7 +100,7 @@ describe Bibliografia do
 
    end # context nodo
    
-   context "Lista Enlazada" do
+   context "# Lista Enlazada" do
       before :all do
          @libro1 = Bibliografia::Referencia.new(
             ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
@@ -226,7 +226,7 @@ describe Bibliografia do
       end
    end # context lista
    
-   context "Lista Doblemente Enlazada" do
+   context "# Lista Doblemente Enlazada" do
       before :all do
          @ref1 = Bibliografia::Referencia.new(
             ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
