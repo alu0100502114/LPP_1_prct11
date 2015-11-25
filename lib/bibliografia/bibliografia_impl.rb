@@ -4,8 +4,13 @@ module Bibliografia
 
   # Clase Referencia para gestionar las de una Bibliografía
   class Referencia
+    include Comparable
     # Getters + Setters
     attr_accessor :autores, :titulo, :serie, :editorial, :num_edicion, :fecha_publicacion, :num_isbns
+    
+    def <=> (anOther)
+      @titulo <=> anOther.titulo
+    end
 
     # Constructor
     def initialize(autores, titulo, serie, editorial, num_edicion, fecha_publicacion, num_isbns)
