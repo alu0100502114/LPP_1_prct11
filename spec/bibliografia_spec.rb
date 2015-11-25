@@ -498,6 +498,10 @@ describe Bibliografia do
       it "Comprueba que un libro es inferior que otro" do
          expect(@libro2 < @libro1).to eq(true)
       end
+      
+      it "Comprueba que un libro es superior a otro" do
+         expect(@libro1 > @libro2).to eq(true)
+      end
   end #context
    
 end # describe
