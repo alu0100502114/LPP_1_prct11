@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Práctica 8 de LPP.}
   spec.description   = %q{Referencias en una Bibliografía en una Lista enlazada de doble entrada}
-  spec.homepage      = "https://bitbucket.org/jesus_marin/lpp_1_prct08"
+  spec.homepage      = "https://bitbucket.org/jesus_marin/lpp_1_prct09"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
