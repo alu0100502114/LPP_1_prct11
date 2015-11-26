@@ -355,8 +355,12 @@ describe Bibliografia do
       end
             
       it "Comprueba que hay 5 libros" do
-         #@lista.each { |e| expect(e.autores).not_to be_empty}
          expect(@lista.count).to eq(5)
+      end
+
+      it "Busca libro Pro Git 2009th Edition" do
+         #@lista.find {|e| puts e.titulo }#== "Pro Git 2009th Edition"}
+         expect(@lista.find {|e| e.titulo == "Pro Git 2009th Edition"}).to eq(@libro2)
       end
       
       it "Debe existir cada Nodo de la lista con sus datos y su siguiente" do
