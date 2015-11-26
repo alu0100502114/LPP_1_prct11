@@ -3,8 +3,17 @@
 
 # Gestionar una Lista doblemente enlazada
 class List2 < List
+  include Enumerable
 
-
+  # Lee lista de nodos
+  def each
+    n = @head
+    while n != nil
+      yield n.value
+      n = n.next
+    end  
+  end
+  
   # Inserta un nodo al principio de la lista
   def ins_start(value)
     if @head != nil && @head.next != nil

@@ -346,6 +346,10 @@ describe Bibliografia do
          expect(@lista.length).to eq(5)
       end
       
+      it "Recorro la lista chequeando valor contiene título" do
+         @lista.each { |e| expect(e.titulo).not_to be_empty}
+      end
+      
       it "Debe existir cada Nodo de la lista con sus datos y su siguiente" do
          e = @lista.head
          while e.next != nil
