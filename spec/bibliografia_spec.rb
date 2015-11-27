@@ -359,17 +359,14 @@ describe Bibliografia do
       end
 
       it "Busca libro Pro Git 2009th Edition" do
-         #@lista.find {|e| puts e.titulo }#== "Pro Git 2009th Edition"}
          expect(@lista.find {|e| e.titulo == "Pro Git 2009th Edition"}).to eq(@libro2)
       end
 
       it "Busca libro menor" do
-         #@lista.find {|e| puts e.titulo }#== "Pro Git 2009th Edition"}
          expect(@lista.min).to eq(@ref5)
       end
    
       it "Busca libro mayor" do
-         #@lista.find {|e| puts e.titulo }#== "Pro Git 2009th Edition"}
          expect(@lista.max).to eq(@ref3)
       end
       
