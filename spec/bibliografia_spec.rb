@@ -531,5 +531,51 @@ describe Bibliografia do
          expect(@libro2 == @libro2b).to eq(true)
       end
   end #context
-   
+        
+   context "# Lista APA doblemente enlazada" do
+      before :all do
+         @libro1 = Bibliografia::Referencia.new(
+            ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
+            "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
+            "(The Facets of Ruby)",
+            "Pragmatic Bookshelf",
+            "4 edition",
+            "(July 7, 2013)",
+            ["968-1937785499", "1937785491"]
+         )
+
+         @libro2 = Bibliografia::Referencia.new(
+            ["Scott Chacon"],
+            "Pro Git 2009th Edition",
+            "(Pro)",
+            "Apress",
+            "2009 edition",
+            "(August 27, 2009)",
+            ["978-1430218333", "1430218339"]
+         )
+
+         @libro2b = Bibliografia::Referencia.new(
+            ["Scott Chacon"],
+            "Pro Git 2009th Edition",
+            "(Pro)",
+            "Apress",
+            "2009 edition",
+            "(August 27, 2009)",
+            ["978-1430218333", "1430218339"]
+         )
+      end # end before
+      
+      it "Comprueba que un libro es inferior que otro" do
+         expect(@libro2 < @libro1).to eq(true)
+      end
+      
+      it "Comprueba que un libro es superior a otro" do
+         expect(@libro1 > @libro2).to eq(true)
+      end
+      
+      it "Comprueba que un libro es igual a otro" do
+         expect(@libro2 == @libro2b).to eq(true)
+      end
+  end #context
+  
 end # describe
