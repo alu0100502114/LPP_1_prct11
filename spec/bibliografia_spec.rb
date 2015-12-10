@@ -520,11 +520,11 @@ describe Bibliografia do
       end # end before
       
       it "Comprueba que un libro es inferior que otro" do
-         expect(@libro2 < @libro1).to eq(true)
+         expect(@libro2 > @libro1).to eq(true)
       end
       
       it "Comprueba que un libro es superior a otro" do
-         expect(@libro1 > @libro2).to eq(true)
+         expect(@libro1 < @libro2).to eq(true)
       end
       
       it "Comprueba que un libro es igual a otro" do
@@ -563,18 +563,19 @@ describe Bibliografia do
             "(August 27, 2009)",
             ["978-1430218333", "1430218339"]
          )
+         @libro1b = Bibliografia::Referencia.new(
+            ["Dave Thomas", "Andy Hunt", "Chad Fowler"], 
+            "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide",
+            "(The Facets of Ruby)",
+            "Pragmatic Bookshelf",
+            "4 edition",
+            "(July 7, 2012)",
+            ["968-1937785499", "1937785491"]
+         )
       end # end before
-      
-      it "Comprueba que un libro es inferior que otro" do
-         expect(@libro2 < @libro1).to eq(true)
-      end
-      
-      it "Comprueba que un libro es superior a otro" do
-         expect(@libro1 > @libro2).to eq(true)
-      end
-      
-      it "Comprueba que un libro es igual a otro" do
-         expect(@libro2 == @libro2b).to eq(true)
+
+      it "Comprueba que un libro de los mismos autores es menor a otro con año superior" do
+         expect(@libro1b < @libro1).to eq(true)
       end
   end #context
   
