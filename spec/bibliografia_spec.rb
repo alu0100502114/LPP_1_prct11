@@ -598,6 +598,10 @@ describe Bibliografia do
       it "Los títulos han de estar capitalizados" do
          expect(@libro1c.titulo == "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide").to eq(true)
       end
+            
+      it "Multi autores separados por &" do
+         expect(@libro1.print_autor == "Thomas, Dave & Hunt, Andy & Fowler, Chad").to eq(true)
+      end
   end #context
   
 end # describe
