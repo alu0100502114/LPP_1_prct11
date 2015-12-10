@@ -44,7 +44,7 @@ describe Bibliografia do
       end
 
       it "debe existir un método para obtener el listado de autores" do
-         expect(@libro.print_autor).to eq("Dave Thomas, Andy Hunt, Chad Fowler")
+         expect(@libro.print_autor).to eq("Thomas, Dave & Hunt, Andy & Fowler, Chad")
       end
 
       it "Existe método para obtener el titulo" do
@@ -72,7 +72,7 @@ describe Bibliografia do
       end
 
       it "Existe un método para obtener la referencia formateada" do
-         expect(@libro.to_s).to eq ("Dave Thomas, Andy Hunt, Chad Fowler\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
+         expect(@libro.to_s).to eq ("Thomas, Dave & Hunt, Andy & Fowler, Chad\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
       end
    end # context referencia
     
@@ -95,7 +95,7 @@ describe Bibliografia do
       end
 
       it "Existe un método en Nodo para obtener la referencia formateada" do
-         expect(@nudo.to_s).to eq("Dave Thomas, Andy Hunt, Chad Fowler\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
+         expect(@nudo.to_s).to eq("Thomas, Dave & Hunt, Andy & Fowler, Chad\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
       end
 
    end # context nodo
@@ -572,10 +572,31 @@ describe Bibliografia do
             "(July 7, 2012)",
             ["968-1937785499", "1937785491"]
          )
+         @libro1c = Bibliografia::Referencia.new(
+            ["Dave Thomas"], 
+            "Programming Ruby 1.9 & 2.0: The pragmatic programmers' guide",
+            "(The Facets of Ruby)",
+            "Pragmatic Bookshelf",
+            "4 edition",
+            "(July 7, 2012)",
+            ["968-1937785499", "1937785491"]
+         )
       end # end before
 
       it "Comprueba que un libro de los mismos autores es menor a otro con año superior" do
          expect(@libro1b < @libro1).to eq(true)
+      end
+      
+      it "Comprueba que autores se muestran como 'Apellido, Nombre'" do
+         expect(@libro1.autor_rev(@libro1.autores[0]) == "Thomas, Dave").to eq(true)
+      end
+      
+      it "En dos libros con mismo autor de inicio, se muestra primero el simple" do
+         expect(@libro1c < @libro1).to eq(true)
+      end
+      
+      it "Los títulos han de estar capitalizados" do
+         expect(@libro1c.titulo == "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide").to eq(true)
       end
   end #context
   

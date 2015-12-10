@@ -13,28 +13,34 @@ module Bibliografia
       this_year = @fecha_publicacion[/.*, ([^\)]*)/,1]
       that_year = anOther.fecha_publicacion[/.*, ([^\)]*)/,1]
 #      self.autores <=> anOther.autores == 0 ? this_year <=> that_year : self.autores <=> anOther.autores
-      [self.autores, this_year] <=> [anOther.autores, that_year]
+      [self.autores, this_year, self.titulo] <=> [anOther.autores, that_year, anOther.titulo]
     end
 
     # Constructor
     def initialize(autores, titulo, serie, editorial, num_edicion, fecha_publicacion, num_isbns)
       @autores = autores
-      @titulo = titulo
+      @titulo = titulo.split.map(&:capitalize).join(' ')
       @serie = serie
       @editorial = editorial
       @num_edicion = num_edicion
       @fecha_publicacion = fecha_publicacion
       @num_isbns = num_isbns
     end
-
+    
+    def autor_rev(autor)
+      name_parts = autor.split - [" "]
+      first_name, last_name = name_parts[0], name_parts[-1]
+      last_name + ", " + first_name
+    end
+    
     # Muestra lista de autores
     def print_autor
       count = 0
       lista = ""
       autores.each do |autor|
         count += 1
-        lista += autor
-        lista += ", " if count != autores.size
+        lista += autor_rev(autor)
+        lista += " & " if count != autores.size
       end
       lista
     end
