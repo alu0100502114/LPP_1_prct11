@@ -9,10 +9,11 @@ module Bibliografia
     attr_accessor :autores, :titulo, :serie, :editorial, :num_edicion, :fecha_publicacion, :num_isbns
     
     def <=> (anOther)
-      @autores <=> anOther.autores
-#      this_year = @fecha_publicacion[/.*, ([^\)]*)/,1]
-#      that_year = anOther.fecha_publicacion[/.*, ([^\)]*)/,1]
+#      @autores <=> anOther.autores
+      this_year = @fecha_publicacion[/.*, ([^\)]*)/,1]
+      that_year = anOther.fecha_publicacion[/.*, ([^\)]*)/,1]
 #      self.autores <=> anOther.autores == 0 ? this_year <=> that_year : self.autores <=> anOther.autores
+      [self.autores, this_year] <=> [anOther.autores, that_year]
     end
 
     # Constructor

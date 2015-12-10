@@ -363,11 +363,11 @@ describe Bibliografia do
       end
 
       it "Busca libro menor" do
-         expect(@lista.min).to eq(@ref5)
+         expect(@lista.min).to eq(@ref1)
       end
    
       it "Busca libro mayor" do
-         expect(@lista.max).to eq(@ref3)
+         expect(@lista.max).to eq(@ref2)
       end
       
       it "Debe existir cada Nodo de la lista con sus datos y su siguiente" do
