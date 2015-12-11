@@ -5,4 +5,4 @@ gemspec
 gem "guard"
 gem "guard-rspec"
 gem "guard-bundler"
-gem "coveralls" require false
+# gem "coveralls" require false
