@@ -8,6 +8,7 @@ module Bibliografia
     # Getters + Setters
     attr_accessor :autores, :titulo, :serie, :editorial, :num_edicion, :fecha_publicacion, :num_isbns
     
+    # Comparador
     def <=> (anOther)
 #      @autores <=> anOther.autores
       this_year = @fecha_publicacion[/.*, ([^\)]*)/,1]
@@ -27,6 +28,7 @@ module Bibliografia
       @num_isbns = num_isbns
     end
     
+    # Invierte nombre
     def autor_rev(autor)
       name_parts = autor.split - [" "]
       first_name, last_name = name_parts[0], name_parts[-1]
@@ -60,6 +62,12 @@ module Bibliografia
     def to_s
       "#{print_autor}\n\t#{titulo}\n\t#{serie}\n\t#{editorial}; #{num_edicion} #{fecha_publicacion}\n\t#{print_isbn}"
     end
+
+    # Para método puts
+    def mi_puts(sufijo)
+      this_year = @fecha_publicacion[/.*, ([^\)]*)/,1]
+      puts "#{print_autor} (#{this_year})#{sufijo}.\n\t#{titulo}\n\t#{serie}\n\t#{editorial}; #{num_edicion} #{fecha_publicacion}\n\t#{print_isbn}"
+    end
   end
   
   # Tipos Libros hijos de Referencia
@@ -84,6 +92,9 @@ module Bibliografia
     def initialize(*referencia)
       super(*referencia)
     end
+    def mi_puts(sufijo)
+      puts "#{print_autor}  #{fecha_publicacion}#{sufijo}.\n\t#{titulo}\n\t#{serie}\n\t#{editorial}; #{num_edicion}\n\t#{print_isbn}"
+    end
   end
   
   # Artículo de Periódico hijo de Tipos Publicaciones
@@ -92,6 +103,7 @@ module Bibliografia
     def initialize(*referencia)
       super(*referencia)
     end
+
   end
   
   # Documento electrónico hijo de Tipos Publicaciones
