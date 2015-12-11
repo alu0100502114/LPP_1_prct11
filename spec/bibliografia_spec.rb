@@ -581,6 +581,9 @@ describe Bibliografia do
             "(July 7, 2012)",
             ["968-1937785499", "1937785491"]
          )
+         @lista1 = List2.new
+         @lista1.ins_end(@libro1)
+         @lista1.ins_end(@libro1c) 
       end # end before
 
       it "Comprueba que un libro de los mismos autores es menor a otro con año superior" do
@@ -606,6 +609,10 @@ describe Bibliografia do
       it "Multi autores separados por &" do
          expect(@libro1.print_autor == "Thomas, Dave & Hunt, Andy & Fowler, Chad").to eq(true)
       end
+      
+      it "Ordena por autor simple primero" do 
+          expect(@lista1.sort).to eq([@libro1c,@libro1])
+       end
   end #context
   
 end # describe
