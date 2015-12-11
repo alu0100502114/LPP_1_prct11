@@ -113,5 +113,29 @@ module Bibliografia
       super(*referencia)
     end
   end
-  
+    
+  # Documento electrónico hijo de Tipos Publicaciones
+  class Referencia_Natural < Referencia
+    # Getters + Setters
+    attr_accessor :autores, :titulo, :serie, :editorial, :num_edicion, :fecha_publicacion, :num_isbns
+    
+    # Constructor
+    def initialize(args)
+      @autores = args[:autores]
+		  raise ArgumentError, 'Especifique :autores' unless @autores
+		  @titulo = args[:titulo]
+		  raise ArgumentError, 'Especifique :titulo' unless @titulo
+		  @serie = args[:serie]
+		  raise ArgumentError, 'Especifique :serie' unless @serie
+		  @editorial = args[:editorial]
+		  raise ArgumentError, 'Especifique :editorial' unless @editorial
+		  @num_edicion = args[:num_edicion]
+		  raise ArgumentError, 'Especifique :num_edicion' unless @num_edicion
+		  @fecha_publicacion = args[:fecha_publicacion]
+		  raise ArgumentError, 'Especifique :fecha_publicacion' unless @fecha_publicacion
+		  @num_isbns = args[:num_isbns]
+		  raise ArgumentError, 'Especifique :num_isbns' unless @num_isbns
+		  super(@autores, @titulo, @serie, @editorial, @num_edicion, @fecha_publicacion, @num_isbns)
+    end
+  end
 end
