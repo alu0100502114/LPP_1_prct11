@@ -30,7 +30,7 @@ module Bibliografia
     def autor_rev(autor)
       name_parts = autor.split - [" "]
       first_name, last_name = name_parts[0], name_parts[-1]
-      last_name + ", " + first_name
+      last_name + ", " + first_name[0]
     end
     
     # Muestra lista de autores

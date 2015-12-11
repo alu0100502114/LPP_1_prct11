@@ -44,7 +44,7 @@ describe Bibliografia do
       end
 
       it "debe existir un método para obtener el listado de autores" do
-         expect(@libro.print_autor).to eq("Thomas, Dave & Hunt, Andy & Fowler, Chad")
+         expect(@libro.print_autor).to eq("Thomas, D & Hunt, A & Fowler, C")
       end
 
       it "Existe método para obtener el titulo" do
@@ -72,7 +72,7 @@ describe Bibliografia do
       end
 
       it "Existe un método para obtener la referencia formateada" do
-         expect(@libro.to_s).to eq ("Thomas, Dave & Hunt, Andy & Fowler, Chad\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets Of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
+         expect(@libro.to_s).to eq ("Thomas, D & Hunt, A & Fowler, C\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets Of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
       end
    end # context referencia
     
@@ -95,7 +95,7 @@ describe Bibliografia do
       end
 
       it "Existe un método en Nodo para obtener la referencia formateada" do
-         expect(@nudo.to_s).to eq("Thomas, Dave & Hunt, Andy & Fowler, Chad\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets Of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
+         expect(@nudo.to_s).to eq("Thomas, D & Hunt, A & Fowler, C\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets Of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
       end
 
    end # context nodo
@@ -556,7 +556,7 @@ describe Bibliografia do
 
          @libro2b = Bibliografia::Referencia.new(
             ["Scott Chacon"],
-            "Pro Git 2009th Edition",
+            "A Pro Git 2009th Edition",
             "(Pro)",
             "Apress",
             "2009 edition",
@@ -587,6 +587,9 @@ describe Bibliografia do
          @lista2 = List2.new
          @lista2.ins_end(@libro1)
          @lista2.ins_end(@libro1b) 
+         @lista3 = List2.new
+         @lista3.ins_end(@libro2)
+         @lista3.ins_end(@libro2b) 
       end # end before
 
       it "Comprueba que un libro de los mismos autores es menor a otro con año superior" do
@@ -594,7 +597,7 @@ describe Bibliografia do
       end
       
       it "Comprueba que autores se muestran como 'Apellido, Nombre'" do
-         expect(@libro1.autor_rev(@libro1.autores[0]) == "Thomas, Dave").to eq(true)
+         expect(@libro1.autor_rev(@libro1.autores[0]) == "Thomas, D").to eq(true)
       end
       
       it "En dos libros con mismo autor de inicio, se muestra primero el simple" do
@@ -610,7 +613,7 @@ describe Bibliografia do
       end
       
       it "Multi autores separados por &" do
-         expect(@libro1.print_autor == "Thomas, Dave & Hunt, Andy & Fowler, Chad").to eq(true)
+         expect(@libro1.print_autor == "Thomas, D & Hunt, A & Fowler, C").to eq(true)
       end
       
       it "Ordenación por autor simple primero" do 
@@ -620,6 +623,10 @@ describe Bibliografia do
       it "Ordenación por año por ser autores iguales" do
          expect(@lista2.sort).to eq([@libro1b,@libro1])
       end
-  end #context
+
+      it "Ordenación por título al coincidir parámetros anteriores" do
+         expect(@lista3.sort).to eq([@libro2b,@libro2]) 
+      end
+   end #context
   
 end # describe
