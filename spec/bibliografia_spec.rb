@@ -52,7 +52,7 @@ describe Bibliografia do
       end
 
       it "Existe un método para obtener la serie" do
-         expect(@libro.serie).to eq("(The Facets of Ruby)") 
+         expect(@libro.serie).to eq("(The Facets Of Ruby)") 
       end
 
       it "Existe un método que devuelve la editorial" do
@@ -72,7 +72,7 @@ describe Bibliografia do
       end
 
       it "Existe un método para obtener la referencia formateada" do
-         expect(@libro.to_s).to eq ("Thomas, Dave & Hunt, Andy & Fowler, Chad\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
+         expect(@libro.to_s).to eq ("Thomas, Dave & Hunt, Andy & Fowler, Chad\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets Of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
       end
    end # context referencia
     
@@ -95,7 +95,7 @@ describe Bibliografia do
       end
 
       it "Existe un método en Nodo para obtener la referencia formateada" do
-         expect(@nudo.to_s).to eq("Thomas, Dave & Hunt, Andy & Fowler, Chad\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
+         expect(@nudo.to_s).to eq("Thomas, Dave & Hunt, Andy & Fowler, Chad\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets Of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
       end
 
    end # context nodo
@@ -575,7 +575,7 @@ describe Bibliografia do
          @libro1c = Bibliografia::Referencia.new(
             ["Dave Thomas"], 
             "Programming Ruby 1.9 & 2.0: The pragmatic programmers' guide",
-            "(The Facets of Ruby)",
+            "(The facets of ruby)",
             "Pragmatic Bookshelf",
             "4 edition",
             "(July 7, 2012)",
@@ -598,7 +598,11 @@ describe Bibliografia do
       it "Los títulos han de estar capitalizados" do
          expect(@libro1c.titulo == "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide").to eq(true)
       end
-            
+               
+      it "Los subtítulos han de estar capitalizados" do
+         expect(@libro1c.serie == "(The Facets Of Ruby)").to eq(true)
+      end
+      
       it "Multi autores separados por &" do
          expect(@libro1.print_autor == "Thomas, Dave & Hunt, Andy & Fowler, Chad").to eq(true)
       end
