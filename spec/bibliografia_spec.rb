@@ -68,11 +68,11 @@ describe Bibliografia do
       end
 
       it "Existe un método para obtener el listado ISBN" do
-         expect(@libro.print_isbn).to eq("ISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
+         expect(@libro.print_isbn).to eq("ISBN-13: 968-1937785499\n\tISBN-10: 1937785491\n\t")
       end
 
       it "Existe un método para obtener la referencia formateada" do
-         expect(@libro.to_s).to eq ("Thomas, D & Hunt, A & Fowler, C\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets Of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
+         expect(@libro.to_s).to eq ("Thomas, D & Hunt, A & Fowler, C\n\tProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n\t(The Facets Of Ruby)\n\tPragmatic Bookshelf; 4 edition (July 7, 2013)\n\tISBN-13: 968-1937785499\n\tISBN-10: 1937785491\n\t")
       end
    end # context referencia
     
@@ -95,7 +95,7 @@ describe Bibliografia do
       end
 
       it "Existe un método en Nodo para obtener la referencia formateada" do
-         expect(@nudo.to_s).to eq("Thomas, D & Hunt, A & Fowler, C\nProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n(The Facets Of Ruby)\nPragmatic Bookshelf; 4 edition (July 7, 2013)\nISBN-13: 968-1937785499\nISBN-10: 1937785491\n")
+         expect(@nudo.to_s).to eq("Thomas, D & Hunt, A & Fowler, C\n\tProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n\t(The Facets Of Ruby)\n\tPragmatic Bookshelf; 4 edition (July 7, 2013)\n\tISBN-13: 968-1937785499\n\tISBN-10: 1937785491\n\t")
       end
 
    end # context nodo
@@ -626,6 +626,10 @@ describe Bibliografia do
 
       it "Ordenación por título al coincidir parámetros anteriores" do
          expect(@lista3.sort).to eq([@libro2b,@libro2]) 
+      end
+      
+      it "Imprime" do
+         puts @libro1.to_s
       end
    end #context
   

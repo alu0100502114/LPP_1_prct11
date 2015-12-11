@@ -51,14 +51,14 @@ module Bibliografia
       num_isbns.each do |isbn|
         count = 0
         lista += "ISBN-" + isbn.delete('^0-9').size.to_s + ": " + isbn
-        lista += "\n" if count != num_isbns.size
+        lista += "\n\t" if count != num_isbns.size
       end
       lista
     end
 
     # Para método puts
     def to_s
-      "#{print_autor}\n#{titulo}\n#{serie}\n#{editorial}; #{num_edicion} #{fecha_publicacion}\n#{print_isbn}"
+      "#{print_autor}\n\t#{titulo}\n\t#{serie}\n\t#{editorial}; #{num_edicion} #{fecha_publicacion}\n\t#{print_isbn}"
     end
   end
   
