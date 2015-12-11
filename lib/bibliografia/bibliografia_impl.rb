@@ -19,7 +19,7 @@ module Bibliografia
     # Constructor
     def initialize(autores, titulo, serie, editorial, num_edicion, fecha_publicacion, num_isbns)
       @autores = autores
-      @titulo = titulo.split.map(&:capitalize).join(' ')
+      titulo == "" ? @titulo = titulo : @titulo = titulo.split.map(&:capitalize).join(' ')
       serie == "" ? @serie = serie : @serie = '(' + serie[1..-1].split.map(&:capitalize).join(' ')
       @editorial = editorial
       @num_edicion = num_edicion
