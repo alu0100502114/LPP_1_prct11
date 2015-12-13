@@ -633,10 +633,6 @@ describe Bibliografia do
       it "Ordenación por título al coincidir parámetros anteriores" do
          expect(@lista3.sort).to eq([@libro2b,@libro2]) 
       end
-      
-      # it "Imprime" do
-      #    puts @libro1.to_s
-      # end
             
       it "Recorro la lista mostrando valores" do
          autores = nil
@@ -663,5 +659,31 @@ describe Bibliografia do
          end
       end
    end #context
+        
+   context "# DSL con Referencias creadas de forma natural" do
+      before :all do
+         @libro1 = Bibliografia::Referencia_Natural.new do
+            authors   "Dave Thomas, Andy Hunt, Chad Fowler"
+            title     "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide"
+            serie     "(The Facets of Ruby)"
+            editorial "Pragmatic Bookshelf"
+            edition   "4 edition"
+            date      "July 7, 2013"
+            isbns     "968-1937785499, 1937785491"
+         end
+      end
+      
+      it "Se ha creado un libro de forma natural" do
+         expect(@libro1.is_a? Bibliografia::Referencia_Natural).to eq(true)
+      end
+            
+      it "cuyo título es el correcto" do
+         expect(@libro1.title).to eq("Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide")
+      end
+            
+      it "Imprime" do
+         puts @libro1.to_s
+      end
+   end # context
   
 end # describe

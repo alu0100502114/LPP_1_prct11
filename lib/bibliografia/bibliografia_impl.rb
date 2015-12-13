@@ -19,13 +19,34 @@ module Bibliografia
 
     # Constructor
     def initialize(autores, titulo, serie, editorial, num_edicion, fecha_publicacion, num_isbns)
-      @autores = autores 
-      titulo == "" ? @titulo = titulo : @titulo = titulo.split.map(&:capitalize).join(' ')
-      serie == "" ? @serie = serie : @serie = '(' + serie[1..-1].split.map(&:capitalize).join(' ')
+      if titulo == nil
+        return
+      end
+      @autores = autores
+      set_titulo(titulo)
+      set_serie(serie)
       @editorial = editorial
       @num_edicion = num_edicion
       @fecha_publicacion = fecha_publicacion
       @num_isbns = num_isbns
+    end
+    
+    # setter de título
+    def titulo=(args)
+      set_titulo(args)
+    end
+    
+    def set_titulo(args)
+      args == "" ? @titulo = "" : @titulo = args.split.map(&:capitalize).join(' ')
+    end
+    
+    # setter de serie
+    def serie=(args)
+      set_serie(args)
+    end
+    
+    def set_serie(args)
+      args == "" ? @serie = "" : @serie = "(" + args[1..-1].split.map(&:capitalize).join(' ')
     end
     
     # Invierte nombre
@@ -116,26 +137,74 @@ module Bibliografia
     
   # Documento electrónico hijo de Tipos Publicaciones
   class Referencia_Natural < Referencia
-    # Getters + Setters
-    attr_accessor :autores, :titulo, :serie, :editorial, :num_edicion, :fecha_publicacion, :num_isbns
     
-    # Constructor
-    def initialize(args)
-      @autores = args[:autores]
-		  raise ArgumentError, 'Especifique :autores' unless @autores
-		  @titulo = args[:titulo]
-		  raise ArgumentError, 'Especifique :titulo' unless @titulo
-		  @serie = args[:serie]
-		  raise ArgumentError, 'Especifique :serie' unless @serie
-		  @editorial = args[:editorial]
-		  raise ArgumentError, 'Especifique :editorial' unless @editorial
-		  @num_edicion = args[:num_edicion]
-		  raise ArgumentError, 'Especifique :num_edicion' unless @num_edicion
-		  @fecha_publicacion = args[:fecha_publicacion]
-		  raise ArgumentError, 'Especifique :fecha_publicacion' unless @fecha_publicacion
-		  @num_isbns = args[:num_isbns]
-		  raise ArgumentError, 'Especifique :num_isbns' unless @num_isbns
-		  super(@autores, @titulo, @serie, @editorial, @num_edicion, @fecha_publicacion, @num_isbns)
+    def initialize &code
+      self.instance_eval &code
+    end
+
+    # Sobrecarga de Accessors para uso en bloque
+    # getter+setter de autores
+    def authors(*args)
+      if args.length == 1
+         args_new = args[0].split
+         Referencia.instance_method(:autores=).bind(self).call(args_new)
+       else
+         Referencia.instance_method(:autores).bind(self).call
+      end
+    end
+    
+    # getter+setter de título
+    def title(*args)
+      if args.length == 1
+         Referencia.instance_method(:titulo=).bind(self).call(*args)
+       else
+         Referencia.instance_method(:titulo).bind(self).call
+      end
+    end
+
+    # getter+setter de serie
+    def serie(*args)
+      if args.length == 1
+         Referencia.instance_method(:serie=).bind(self).call(*args)
+       else
+         Referencia.instance_method(:serie).bind(self).call
+      end
+    end
+    
+    # getter+setter de editorial
+    def editorial(*args)
+      if args.length == 1
+         Referencia.instance_method(:editorial=).bind(self).call(*args)
+       else
+         Referencia.instance_method(:editorial).bind(self).call
+      end
+    end
+
+    # getter+setter de edición
+    def edition(*args)
+      if args.length == 1
+         Referencia.instance_method(:num_edicion=).bind(self).call(*args)
+       else
+         Referencia.instance_method(:num_edicion).bind(self).call
+      end
+    end
+    
+    # getter+setter de fecha
+    def date(*args)
+      if args.length == 1
+         Referencia.instance_method(:fecha_publicacion=).bind(self).call(*args)
+       else
+         Referencia.instance_method(:fecha_publicacion).bind(self).call
+      end    end
+    
+    # getter+setter de isbns
+    def isbns(*args)
+      if args.length == 1
+         args_new = args[0].split
+         Referencia.instance_method(:num_isbns=).bind(self).call(args_new)
+       else
+         Referencia.instance_method(:num_isbns).bind(self).call
+      end
     end
   end
 end
