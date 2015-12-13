@@ -209,6 +209,6 @@ module Bibliografia
   end
 
   # Artículo de Revista Natural
-  class Articulo_Revista_Natural < Articulo_Revista
+  class Articulo_Revista_Natural < Referencia_Natural
   end
 end
