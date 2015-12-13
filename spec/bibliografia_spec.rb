@@ -699,7 +699,11 @@ describe Bibliografia do
       end
                   
       it "cuyo título es el correcto" do
-         expect(@libro1.title).to eq("Programando Ruby")
+         expect(@revista1.title).to eq("Programando Ruby")
+      end
+                  
+      it "Imprime" do
+         puts @revista1.to_s
       end
    end # context
   

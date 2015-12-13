@@ -146,7 +146,7 @@ module Bibliografia
     # getter+setter de autores
     def authors(*args)
       if args.length == 1
-         args_new = args[0].split
+         args_new = args[0].split(", ")
          Referencia.instance_method(:autores=).bind(self).call(args_new)
        else
          Referencia.instance_method(:autores).bind(self).call
@@ -200,7 +200,7 @@ module Bibliografia
     # getter+setter de isbns
     def isbns(*args)
       if args.length == 1
-         args_new = args[0].split
+         args_new = args[0].split(", ")
          Referencia.instance_method(:num_isbns=).bind(self).call(args_new)
        else
          Referencia.instance_method(:num_isbns).bind(self).call
