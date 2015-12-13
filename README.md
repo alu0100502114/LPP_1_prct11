@@ -3,7 +3,9 @@
 
 ## Lenguajes y Paradigmas de Programación
 
-### Práctica de Laboratorio #11. Programación Funcional. Funciones de orden superior
+### Práctica de Laboratorio #11.
+
+Programación Funcional. Funciones de orden superior
 
 ### Autor: 
 
