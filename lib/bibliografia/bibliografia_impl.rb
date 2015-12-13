@@ -107,6 +107,9 @@ module Bibliografia
     def initialize(*referencia)
       super(*referencia)
     end
+    def mi_puts(sufijo)
+      puts "#{print_autor}  #{fecha_publicacion}#{sufijo}.\n\t#{titulo}\n\t#{serie}\n\t#{editorial}; #{num_edicion}\n\t#{print_isbn}"
+    end
   end
   
   # Artículo de Revista hijo de Tipos Publicaciones
@@ -114,9 +117,6 @@ module Bibliografia
     # Constructor
     def initialize(*referencia)
       super(*referencia)
-    end
-    def mi_puts(sufijo)
-      puts "#{print_autor}  #{fecha_publicacion}#{sufijo}.\n\t#{titulo}\n\t#{serie}\n\t#{editorial}; #{num_edicion}\n\t#{print_isbn}"
     end
   end
   
@@ -213,5 +213,13 @@ module Bibliografia
 
   # Artículo de Revista Natural
   class Articulo_Revista_Natural < Referencia_Natural
+  end
+  
+  # Artículo de Periódico Natural
+  class Articulo_Periodico_Natural < Articulo_Periodico
+  end
+  
+  # Documento Electrónico Natural
+  class Documento_Electronico_Natural < Documento_Electronico
   end
 end
