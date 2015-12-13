@@ -697,6 +697,10 @@ describe Bibliografia do
       it "Se ha creado un artículo de revista de forma natural" do
          expect(@revista1.is_a? Bibliografia::Articulo_Revista_Natural).to eq(true)
       end
+                  
+      it "cuyo título es el correcto" do
+         expect(@libro1.title).to eq("Programando Ruby")
+      end
    end # context
   
 end # describe
