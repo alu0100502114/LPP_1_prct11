@@ -135,7 +135,7 @@ module Bibliografia
     end
   end
     
-  # Documento electrónico hijo de Tipos Publicaciones
+  # Referencia natural
   class Referencia_Natural < Referencia
     
     def initialize &code
@@ -206,5 +206,9 @@ module Bibliografia
          Referencia.instance_method(:num_isbns).bind(self).call
       end
     end
+  end
+
+  # Artículo de Revista Natural
+  class Articulo_Revista_Natural < Articulo_Revista
   end
 end
