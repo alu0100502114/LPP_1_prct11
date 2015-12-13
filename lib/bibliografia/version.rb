@@ -1,3 +1,5 @@
+# Para Versión
 module Bibliografia
-  VERSION = "0.2.0"
+     # Vesión actual
+  VERSION = "0.4.0"
 end

@@ -36,6 +36,7 @@ module Bibliografia
       set_titulo(args)
     end
     
+    # soporte de setter de título
     def set_titulo(args)
       args == "" ? @titulo = "" : @titulo = args.split.map(&:capitalize).join(' ')
     end
@@ -45,6 +46,7 @@ module Bibliografia
       set_serie(args)
     end
     
+    # soporte de setter de serie
     def set_serie(args)
       args == "" ? @serie = "" : @serie = "(" + args[1..-1].split.map(&:capitalize).join(' ')
     end
@@ -138,6 +140,7 @@ module Bibliografia
   # Referencia natural
   class Referencia_Natural < Referencia
     
+    # Constructor
     def initialize &code
       self.instance_eval &code
     end
