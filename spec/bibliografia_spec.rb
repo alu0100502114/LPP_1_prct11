@@ -671,6 +671,15 @@ describe Bibliografia do
             date      "July 7, 2013"
             isbns     "968-1937785499, 1937785491"
          end
+         @revista1 = Bibliografia::Articulo_Revista_Natural.new do
+            authors   "José Pérez, Antonio Rdguez"
+            title     "Programando Ruby"
+            serie     "(Los mil rostros de Ruby)"
+            editorial "Estante Pragmático"
+            edition   "Cuarta edición"
+            date      "Julio 7, 2014"
+            isbns     "968-1937785499, 1937785491"
+         end
       end
       
       it "Se ha creado un libro de forma natural" do
@@ -683,6 +692,10 @@ describe Bibliografia do
             
       it "Imprime" do
          puts @libro1.to_s
+      end
+            
+      it "Se ha creado un artículo de revista de forma natural" do
+         expect(@revista1.is_a? Bibliografia::Articulo_Revista_Natural).to eq(true)
       end
    end # context
   
