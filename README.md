@@ -36,3 +36,16 @@ Programación Funcional. Funciones de orden superior
             date      "Julio 7, 2014"
             isbns     "968-1937785499, 1937785491"
     </pre>
+- Para Artículos de periódico:
+    <pre>
+            authors   "Jesús Marín, Conchi Barella"
+            title     "Como Programar Ruby y no morir en el intento"
+            serie     "(Programa para torpes)"
+            magazine  :name => "La Pecera",
+                      :week => 20,
+                      :year => 2015
+            editorial "Estante Pragmático"
+            edition   "Quinta edición"
+            date      "Julio 7, 2015"
+            isbns     "968-1937785499, 1937785491"
+    </pre>
