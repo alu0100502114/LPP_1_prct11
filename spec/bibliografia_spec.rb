@@ -675,6 +675,9 @@ describe Bibliografia do
             authors   "José Pérez, Antonio Rdguez"
             title     "Programando Ruby"
             serie     "(Los mil rostros de Ruby)"
+            journal   :name => "Título de la revista",
+                      :volume => 20,
+                      :issue => 3
             editorial "Estante Pragmático"
             edition   "Cuarta edición"
             date      "Julio 7, 2014"

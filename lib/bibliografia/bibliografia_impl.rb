@@ -46,6 +46,16 @@ module Bibliografia
       set_serie(args)
     end
     
+    # getter de serie
+    def get_serie
+      @serie
+    end
+    
+    # getter de editorial
+    def get_editorial
+      @editorial
+    end
+    
     # soporte de setter de serie
     def set_serie(args)
       args == "" ? @serie = "" : @serie = "(" + args[1..-1].split.map(&:capitalize).join(' ')
@@ -83,7 +93,7 @@ module Bibliografia
 
     # Para método puts
     def to_s
-      "#{print_autor}\n\t#{titulo}\n\t#{serie}\n\t#{editorial}; #{num_edicion} #{fecha_publicacion}\n\t#{print_isbn}"
+      "#{print_autor}\n\t#{titulo}\n\t#{get_serie}\n\t#{get_editorial}; #{num_edicion} #{fecha_publicacion}\n\t#{print_isbn}"
     end
 
     # Para método puts
@@ -138,81 +148,77 @@ module Bibliografia
   end
     
   # Referencia natural
-  class Referencia_Natural < Referencia
+  class Referencia_Natural < Publicacion
     
     # Constructor
-    def initialize &code
-      self.instance_eval &code
+    def initialize &block
+      self.instance_eval &block
     end
 
     # Sobrecarga de Accessors para uso en bloque
     # getter+setter de autores
     def authors(*args)
-      if args.length == 1
-         args_new = args[0].split(", ")
-         Referencia.instance_method(:autores=).bind(self).call(args_new)
-       else
-         Referencia.instance_method(:autores).bind(self).call
-      end
+      args.length == 1 ? self.autores = args[0].split(", ") : self.autores 
     end
     
     # getter+setter de título
     def title(*args)
-      if args.length == 1
-         Referencia.instance_method(:titulo=).bind(self).call(*args)
-       else
-         Referencia.instance_method(:titulo).bind(self).call
-      end
+      args.length == 1 ? self.titulo = args[0] : self.titulo
     end
 
     # getter+setter de serie
     def serie(*args)
-      if args.length == 1
-         Referencia.instance_method(:serie=).bind(self).call(*args)
-       else
-         Referencia.instance_method(:serie).bind(self).call
-      end
+      args.length == 1 ? self.serie = args[0] : get_serie
     end
     
     # getter+setter de editorial
     def editorial(*args)
-      if args.length == 1
-         Referencia.instance_method(:editorial=).bind(self).call(*args)
-       else
-         Referencia.instance_method(:editorial).bind(self).call
-      end
+      args.length == 1 ? self.editorial = args[0] : get_editorial
     end
 
     # getter+setter de edición
     def edition(*args)
-      if args.length == 1
-         Referencia.instance_method(:num_edicion=).bind(self).call(*args)
-       else
-         Referencia.instance_method(:num_edicion).bind(self).call
-      end
+      args.length == 1 ? self.num_edicion = args[0] : self.num_edicion
     end
     
     # getter+setter de fecha
     def date(*args)
-      if args.length == 1
-         Referencia.instance_method(:fecha_publicacion=).bind(self).call(*args)
-       else
-         Referencia.instance_method(:fecha_publicacion).bind(self).call
-      end    end
+      args.length == 1 ? self.fecha_publicacion = args[0] : self.fecha_publicacion
+    end
     
     # getter+setter de isbns
     def isbns(*args)
-      if args.length == 1
-         args_new = args[0].split(", ")
-         Referencia.instance_method(:num_isbns=).bind(self).call(args_new)
-       else
-         Referencia.instance_method(:num_isbns).bind(self).call
-      end
+      args.length == 1 ? self.num_isbns = args[0].split(", ") : self.num_isbns
     end
   end
 
   # Artículo de Revista Natural
   class Articulo_Revista_Natural < Referencia_Natural
+    attr_accessor :journal
+    # Constructor
+    def initialize &block
+      super &block
+    end
+    
+    # getter+setter de journal
+    def journal(*args)
+      if args.length == 1
+        name, volume, issue = args[0][:name], args[0][:volume], args[0][:issue]
+        output = ""
+        name != nil ? output += "Journal " + name : nil
+        volume != nil ? output += ", Volume " + volume.to_s : nil
+        issue != nil ? output += ", Issue " + issue.to_s : nil
+        self.journal = output
+      else
+        @journal
+      end
+    end
+    
+    # muestra revista natural
+    def to_s
+      puts @journal + "\n"
+      super
+    end
   end
   
   # Artículo de Periódico Natural
