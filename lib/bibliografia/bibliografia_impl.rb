@@ -7,7 +7,7 @@ module Bibliografia
     include Comparable
     # Getters + Setters
     attr_accessor :autores, :titulo, :serie, :editorial, :num_edicion, :fecha_publicacion, :num_isbns
-    
+
     # Comparador
     def <=> (anOther)
 #      @autores <=> anOther.autores
@@ -93,13 +93,13 @@ module Bibliografia
 
     # Para método puts
     def to_s
-      "#{print_autor}\n\t#{titulo}\n\t#{get_serie}\n\t#{get_editorial}; #{num_edicion} #{fecha_publicacion}\n\t#{print_isbn}"
+      "#{print_autor}\n\t#{@titulo}\n\t#{@serie}\n\t#{@editorial}; #{@num_edicion} #{@fecha_publicacion}\n\t#{print_isbn}"
     end
 
     # Para método puts
     def mi_puts(sufijo)
       this_year = @fecha_publicacion[/.*, ([^\)]*)/,1]
-      puts "#{print_autor} (#{this_year})#{sufijo}.\n\t#{titulo}\n\t#{serie}\n\t#{editorial}; #{num_edicion} #{fecha_publicacion}\n\t#{print_isbn}"
+      puts "#{print_autor} (#{this_year})#{sufijo}.\n\t#{@titulo}\n\t#{@serie}\n\t#{@editorial}; #{@num_edicion} #{@fecha_publicacion}\n\t#{print_isbn}"
     end
   end
   
@@ -205,9 +205,9 @@ module Bibliografia
       if args.length == 1
         name, volume, issue = args[0][:name], args[0][:volume], args[0][:issue]
         output = ""
-        name != nil ? output += "Journal " + name : nil
-        volume != nil ? output += ", Volume " + volume.to_s : nil
-        issue != nil ? output += ", Issue " + issue.to_s : nil
+        output << "Journal " + name if name != nil
+        output << ", Volume " + volume.to_s if volume != nil
+        output << ", Issue " + issue.to_s if issue != nil
         self.journal = output
       else
         @journal
