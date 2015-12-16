@@ -194,7 +194,9 @@ module Bibliografia
 
   # Artículo de Revista Natural
   class Articulo_Revista_Natural < Referencia_Natural
+    # Campos
     attr_accessor :journal
+    
     # Constructor
     def initialize &block
       super &block
@@ -222,7 +224,33 @@ module Bibliografia
   end
   
   # Artículo de Periódico Natural
-  class Articulo_Periodico_Natural < Articulo_Periodico
+  class Articulo_Periodico_Natural < Referencia_Natural
+    # Campos
+    attr_accessor :magazine
+    
+    # Constructor
+    def initialize &block
+      super &block
+    end
+    
+    # getter+setter de magazine
+    def magazine(*args)
+       if args.length == 1
+        name, week, year = args[0][:name], args[0][:week], args[0][:year]
+        output = ""
+        output << "Magazine " + name if name != nil
+        output << ", Week " + week.to_s if week != nil
+        output << ", Year " + year.to_s if year != nil
+        self.magazine = output
+      else
+        @magazine
+      end
+    end
+    
+    def to_s
+      puts @magazine + "\n"
+      super
+    end
   end
   
   # Documento Electrónico Natural

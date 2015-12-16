@@ -685,13 +685,13 @@ describe Bibliografia do
          end
          @periodico1 = Bibliografia::Articulo_Periodico_Natural.new do
             authors   "Jesús Marín, Conchi Barella"
-            title     "Cómo Programar Ruby y no morir en el intento"
+            title     "Como Programar Ruby y no morir en el intento"
             serie     "(Programa para torpes)"
             magazine  :name => "La Pecera",
                       :week => 20,
                       :year => 2015
             editorial "Estante Pragmático"
-            # edition   "Quinta edición"
+            edition   "Quinta edición"
             date      "Julio 7, 2015"
             isbns     "968-1937785499, 1937785491"
          end
@@ -726,7 +726,7 @@ describe Bibliografia do
       end
                   
       it "cuyo título es el correcto" do
-         expect(@periodico1.title).to eq("Programando Ruby")
+         expect(@periodico1.title).to eq("Como Programar Ruby Y No Morir En El Intento")
       end
                   
       it "Imprime" do
