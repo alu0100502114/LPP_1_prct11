@@ -12,7 +12,7 @@ Programación Funcional. Funciones de orden superior
    - Jesús Marín Ruiz (jesus/dev): encargado de desarrollar la pruebas y el código que las verifique
 
 ### Ejemplo de valores en el bloque:
-   - Para Referencias Naturales:
+    - Para Referencias Naturales:
     <pre>
             authors   "Dave Thomas, Andy Hunt, Chad Fowler"
             title     "Programming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide"

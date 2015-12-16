@@ -683,6 +683,18 @@ describe Bibliografia do
             date      "Julio 7, 2014"
             isbns     "968-1937785499, 1937785491"
          end
+         @periodico1 = Bibliografia::Articulo_Periodico_Natural.new do
+            authors   "Jesús Marín, Conchi Barella"
+            title     "Cómo Programar Ruby y no morir en el intento"
+            serie     "(Programa para torpes)"
+            magazine  :name => "La Pecera",
+                      :week => 20,
+                      :year => 2015
+            editorial "Estante Pragmático"
+            # edition   "Quinta edición"
+            date      "Julio 7, 2015"
+            isbns     "968-1937785499, 1937785491"
+         end
       end
       
       it "Se ha creado un libro de forma natural" do
@@ -707,6 +719,18 @@ describe Bibliografia do
                   
       it "Imprime" do
          puts @revista1.to_s
+      end
+                  
+      it "Se ha creado un artículo de periódico de forma natural" do
+         expect(@periodico1.is_a? Bibliografia::Articulo_Periodico_Natural).to eq(true)
+      end
+                  
+      it "cuyo título es el correcto" do
+         expect(@periodico1.title).to eq("Programando Ruby")
+      end
+                  
+      it "Imprime" do
+         puts @periodico1.to_s
       end
    end # context
   
