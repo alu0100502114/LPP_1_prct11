@@ -1,5 +1,6 @@
-[![Coverage Status](https://coveralls.io/repos/alu0100502114/LPP_1_prct11/badge.svg?branch=jesus%2Fdev&service=github)](https://coveralls.io/github/alu0100502114/LPP_1_prct11?branch=jesus%2Fdev)
-[![Build Status](https://travis-ci.org/alu0100502114/LPP_1_prct11.svg?branch=jesus%2Fdev)](https://travis-ci.org/alu0100502114/LPP_1_prct11)
+| Coveralls | Travis |
+| --------- | ------ |
+| [![Coverage Status](https://coveralls.io/repos/alu0100502114/LPP_1_prct11/badge.svg?branch=jesus%2Fdev&service=github)](https://coveralls.io/github/alu0100502114/LPP_1_prct11?branch=jesus%2Fdev) | [![Build Status](https://travis-ci.org/alu0100502114/LPP_1_prct11.svg?branch=jesus%2Fdev)](https://travis-ci.org/alu0100502114/LPP_1_prct11) |
 
 ## Lenguajes y Paradigmas de Programación
 
@@ -33,5 +34,18 @@ Programación Funcional. Funciones de orden superior
             editorial "Estante Pragmático"
             edition   "Cuarta edición"
             date      "Julio 7, 2014"
+            isbns     "968-1937785499, 1937785491"
+    </pre>
+- Para Artículos de periódico:
+    <pre>
+            authors   "Jesús Marín, Conchi Barella"
+            title     "Como Programar Ruby y no morir en el intento"
+            serie     "(Programa para torpes)"
+            magazine  :name => "La Pecera",
+                      :week => 20,
+                      :year => 2015
+            editorial "Estante Pragmático"
+            edition   "Quinta edición"
+            date      "Julio 7, 2015"
             isbns     "968-1937785499, 1937785491"
     </pre>
