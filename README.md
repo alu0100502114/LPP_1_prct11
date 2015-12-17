@@ -37,7 +37,11 @@ El DSL que diseñe ha de permitir la definición de referencias o citas bibliogr
 natural.   
 
 ### Forma de usar el new:
+<<<<<<< HEAD
 
+=======
+- Para Artículo de periódico, por ejemplo.
+>>>>>>> jesus/dev
     <pre>
      @periodico1 = Bibliografia::Articulo_Periodico_Natural.new do
             authors   "Jesús Marín, Conchi Barella"
