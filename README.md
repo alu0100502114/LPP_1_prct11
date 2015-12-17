@@ -36,6 +36,23 @@ cualquier otro lenguaje. Los DSL internos estan alojados dentro de otro lenguaje
 El DSL que diseñe ha de permitir la definición de referencias o citas bibliográficas de una forma
 natural.   
 
+### Forma de usar el new:
+- Para Artículo de periódico, por ejemplo.
+    <pre>
+     @periodico1 = Bibliografia::Articulo_Periodico_Natural.new do
+            authors   "Jesús Marín, Conchi Barella"
+            title     "Como Programar Ruby y no morir en el intento"
+            serie     "(Programa para torpes)"
+            magazine  :name => "La Pecera",
+                      :week => 20,
+                      :year => 2015
+            editorial "Estante Pragmático"
+            edition   "Quinta edición"
+            date      "Julio 7, 2015"
+            isbns     "968-1937785499, 1937785491"
+         end
+    </pre>
+
 ### Ejemplo de valores en el bloque:
 - Para Referencias Naturales:
     <pre>
@@ -68,6 +85,18 @@ natural.
             magazine  :name => "La Pecera",
                       :week => 20,
                       :year => 2015
+            editorial "Estante Pragmático"
+            edition   "Quinta edición"
+            date      "Julio 7, 2015"
+            isbns     "968-1937785499, 1937785491"
+    </pre>
+- Para Documentos Electrónicos:
+    <pre>
+            authors   "Jesús Marín, Conchi Barella"
+            title     "Como Programar Ruby y no morir en el intento"
+            serie     "(Programa para torpes)"
+            blog      :name => "La Pecera",
+                      :url => "http:vayavaya.com/coproruynomonint"
             editorial "Estante Pragmático"
             edition   "Quinta edición"
             date      "Julio 7, 2015"
