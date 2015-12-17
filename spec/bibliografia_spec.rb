@@ -71,9 +71,9 @@ describe Bibliografia do
          expect(@libro.print_isbn).to eq("ISBN-13: 968-1937785499\n\tISBN-10: 1937785491\n\t")
       end
 
-      # it "Existe un método para obtener la referencia formateada" do
-      #    expect(@libro.to_s).to eq ("Thomas, D & Hunt, A & Fowler, C\n\tProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n\t(The Facets Of Ruby)\n\tPragmatic Bookshelf; 4 edition (July 7, 2013)\n\tISBN-13: 968-1937785499\n\tISBN-10: 1937785491\n\t")
-      # end
+      it "Existe un método para obtener la referencia formateada" do
+         expect(@libro.to_s).to eq ("Thomas, D & Hunt, A & Fowler, C\n\tProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n\t(The Facets Of Ruby)\n\tPragmatic Bookshelf; 4 edition (July 7, 2013)\n\tISBN-13: 968-1937785499\n\tISBN-10: 1937785491\n\t")
+      end
    end # context referencia
     
    context "# Nodo" do
@@ -208,22 +208,22 @@ describe Bibliografia do
          expect(e.value.autores).not_to be_empty
       end
       
-      # it "El segundo elemento de la lista es Libro2" do
-      #    e = @lista.head
-      #    e = @lista.head.next
-      #    expect(e.value.to_s).to eq(@libro2.to_s)
-      # end
+      it "El segundo elemento de la lista es Libro2" do
+         e = @lista.head
+         e = @lista.head.next
+         expect(e.value.to_s).to eq(@libro2.to_s)
+      end
       
-      # it "Debe de existir una lista con su cabeza" do
-      #    e = @lista.head
-      #    expect(e.value.to_s).to eq(@libro1.to_s)
-      # end
+      it "Debe de existir una lista con su cabeza" do
+         e = @lista.head
+         expect(e.value.to_s).to eq(@libro1.to_s)
+      end
             
-      # it "Se extrae el primer elemento de la lista" do
-      #    e = @lista.extract_first
-      #    expect(e.value.to_s).to eq(@libro1.to_s)
-      #    expect(@lista.length).to eq(4)
-      # end
+      it "Se extrae el primer elemento de la lista" do
+         e = @lista.extract_first
+         expect(e.value.to_s).to eq(@libro1.to_s)
+         expect(@lista.length).to eq(4)
+      end
    end # context lista
    
    context "# Lista Doblemente Enlazada" do
@@ -420,70 +420,70 @@ describe Bibliografia do
          expect(e.value.autores).not_to be_empty
       end
       
-      # it "El segundo elemento de la lista es ref2" do
-      #    e = @lista.head
-      #    e = @lista.head.next
-      #    expect(e.value.to_s).to eq(@ref2.to_s)
-      # end
+      it "El segundo elemento de la lista es ref2" do
+         e = @lista.head
+         e = @lista.head.next
+         expect(e.value.to_s).to eq(@ref2.to_s)
+      end
       
-      # it "Debe de existir una lista con su cabeza" do
-      #    e = @lista.head
-      #    expect(e.value.to_s).to eq(@ref1.to_s)
-      # end      
+      it "Debe de existir una lista con su cabeza" do
+         e = @lista.head
+         expect(e.value.to_s).to eq(@ref1.to_s)
+      end      
       
-      # it "Debe de existir una lista con su cola" do
-      #    e = @lista.tail
-      #    expect(e.value.to_s).to eq(@ref5.to_s)
-      # end
+      it "Debe de existir una lista con su cola" do
+         e = @lista.tail
+         expect(e.value.to_s).to eq(@ref5.to_s)
+      end
             
-      # it "Se extrae el primer elemento de la lista" do
-      #    e = @lista.extract_first
-      #    expect(e.value.to_s).to eq(@ref1.to_s)
-      #    expect(@lista.length).to eq(4)
-      # end
+      it "Se extrae el primer elemento de la lista" do
+         e = @lista.extract_first
+         expect(e.value.to_s).to eq(@ref1.to_s)
+         expect(@lista.length).to eq(4)
+      end
             
-      # it "Se extrae el último elemento de la lista" do
-      #    e = @lista.extract_last
-      #    expect(e.value.to_s).to eq(@ref5.to_s)
-      #    expect(@lista.length).to eq(3)
-      # end
+      it "Se extrae el último elemento de la lista" do
+         e = @lista.extract_last
+         expect(e.value.to_s).to eq(@ref5.to_s)
+         expect(@lista.length).to eq(3)
+      end
        
-      # it "Se añaden 2 libros por el final" do
-      #    @lista.ins_end(@libro1)
-      #    @lista.ins_end(@libro2)
-      #    expect(@lista.length).to eq(5)
-      # end
+      it "Se añaden 2 libros por el final" do
+         @lista.ins_end(@libro1)
+         @lista.ins_end(@libro2)
+         expect(@lista.length).to eq(5)
+      end
             
-      # it "El último elemento de la lista es de tipo libro" do
-      #    expect(@lista.tail.value).to be_a Bibliografia::Libro
-      # end
+      it "El último elemento de la lista es de tipo libro" do
+         expect(@lista.tail.value).to be_a Bibliografia::Libro
+      end
        
-      # it "Se añaden 3 publicaciones distintas por el final" do
-      #    @lista.ins_end(@pub1)
-      #    @lista.ins_end(@pub2)
-      #    @lista.ins_end(@pub3)
-      #    expect(@lista.length).to eq(8)
-      # end
+      it "Se añaden 3 publicaciones distintas por el final" do
+         @lista.ins_end(@pub1)
+         @lista.ins_end(@pub2)
+         @lista.ins_end(@pub3)
+         expect(@lista.length).to eq(8)
+      end
             
-      # it "El último elemento de la lista es una Publicación Periódica de Documento electrónico" do
-      #    expect(@lista.tail.value).to be_a Bibliografia::Publicacion
-      #    expect(@lista.tail.value).to be_a(Bibliografia::Documento_Electronico)
-      # end
+      it "El último elemento de la lista es una Publicación Periódica de Documento electrónico" do
+         expect(@lista.tail.value).to be_a Bibliografia::Publicacion
+         expect(@lista.tail.value).to be_a(Bibliografia::Documento_Electronico)
+      end
             
-      # it "El penúltimo elemento de la lista es una Publicación Periódica de Artículo de Periódico" do
-      #    expect(@lista.tail.prev.value).to be_a Bibliografia::Publicacion
-      #    expect(@lista.tail.prev.value).to be_a(Bibliografia::Articulo_Periodico)
-      # end
+      it "El penúltimo elemento de la lista es una Publicación Periódica de Artículo de Periódico" do
+         expect(@lista.tail.prev.value).to be_a Bibliografia::Publicacion
+         expect(@lista.tail.prev.value).to be_a(Bibliografia::Articulo_Periodico)
+      end
             
-      # it "El antepenúltimo elemento de la lista es una Publicación Periódica de Artículo de Revista" do
-      #    expect(@lista.tail.prev.prev.value).to be_a Bibliografia::Publicacion
-      #    expect(@lista.tail.prev.prev.value).to be_a(Bibliografia::Articulo_Revista)
-      # end
+      it "El antepenúltimo elemento de la lista es una Publicación Periódica de Artículo de Revista" do
+         expect(@lista.tail.prev.prev.value).to be_a Bibliografia::Publicacion
+         expect(@lista.tail.prev.prev.value).to be_a(Bibliografia::Articulo_Revista)
+      end
             
-      # it "El último elemento de la lista es pub3" do
-      #    e = @lista.tail
-      #    expect(e.value.to_s).to eq(@pub3.to_s)
-      # end
+      it "El último elemento de la lista es pub3" do
+         e = @lista.tail
+         expect(e.value.to_s).to eq(@pub3.to_s)
+      end
    end # context lista2
      
    context "# Comparar libros" do
@@ -527,9 +527,9 @@ describe Bibliografia do
          expect(@libro1 < @libro2).to eq(true)
       end
       
-      # it "Comprueba que un libro es igual a otro" do
-      #    expect(@libro2 == @libro2b).to eq(true)
-      # end
+      it "Comprueba que un libro es igual a otro" do
+         expect(@libro2 == @libro2b).to eq(true)
+      end
   end #context
         
    context "# Lista APA doblemente enlazada" do
