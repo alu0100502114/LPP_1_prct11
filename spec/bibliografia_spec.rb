@@ -94,9 +94,9 @@ describe Bibliografia do
          expect(@nudo.value.num_edicion).to eq("4 edition")
       end
 
-      # it "Existe un método en Nodo para obtener la referencia formateada" do
-      #    expect(@nudo.to_s).to eq("Thomas, D & Hunt, A & Fowler, C\n\tProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n\t(The Facets Of Ruby)\n\tPragmatic Bookshelf; 4 edition (July 7, 2013)\n\tISBN-13: 968-1937785499\n\tISBN-10: 1937785491\n\t")
-      # end
+      it "Existe un método en Nodo para obtener la referencia formateada" do
+         expect(@nudo.to_s).to eq("Thomas, D & Hunt, A & Fowler, C\n\tProgramming Ruby 1.9 & 2.0: The Pragmatic Programmers' Guide\n\t(The Facets Of Ruby)\n\tPragmatic Bookshelf; 4 edition (July 7, 2013)\n\tISBN-13: 968-1937785499\n\tISBN-10: 1937785491\n\t")
+      end
 
    end # context nodo
    
