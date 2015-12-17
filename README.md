@@ -11,7 +11,9 @@ Programación Funcional. Funciones de orden superior
 ### Autor: 
 
    - Jesús Marín Ruiz (jesus/dev): encargado de desarrollar la pruebas y el código que las verifique
-    
+
+### Consideraciones    
+
 Considere la jerarquía de clases Ruby para representar una lista de citas y referencias
 bibliográ́ficas en formato de la Asociación de Psicología Americana (APA), esto es, una Bibliografía.
 
@@ -37,7 +39,7 @@ El DSL que diseñe ha de permitir la definición de referencias o citas bibliogr
 natural.   
 
 ### Forma de usar el new:
-
+- Para Artículo de periódico, por ejemplo.
     <pre>
      @periodico1 = Bibliografia::Articulo_Periodico_Natural.new do
             authors   "Jesús Marín, Conchi Barella"
