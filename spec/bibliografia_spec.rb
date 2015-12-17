@@ -695,6 +695,17 @@ describe Bibliografia do
             date      "Julio 7, 2015"
             isbns     "968-1937785499, 1937785491"
          end
+         @documento1 = Bibliografia::Documento_Electronico_Natural.new do
+            authors   "Jesús Marín, Conchi Barella"
+            title     "Como Programar Ruby y no morir en el intento"
+            serie     "(Programa para torpes)"
+            blog      :name => "La Pecera",
+                      :url => "http:vayavaya.com/coproruynomonint"
+            editorial "Estante Pragmático"
+            edition   "Quinta edición"
+            date      "Julio 7, 2015"
+            isbns     "968-1937785499, 1937785491"
+         end
       end
       
       it "Se ha creado un libro de forma natural" do
@@ -731,6 +742,18 @@ describe Bibliografia do
                   
       it "Imprime" do
          puts @periodico1.to_s
+      end
+                        
+      it "Se ha creado un documento electrónico de forma natural" do
+         expect(@documento1.is_a? Bibliografia::Documento_Electronico_Natural).to eq(true)
+      end
+                  
+      it "cuyo título es el correcto" do
+         expect(@documento1.title).to eq("Como Programar Ruby Y No Morir En El Intento")
+      end
+                  
+      it "Imprime" do
+         puts @documento1.to_s
       end
    end # context
   

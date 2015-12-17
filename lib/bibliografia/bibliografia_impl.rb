@@ -247,6 +247,7 @@ module Bibliografia
       end
     end
     
+    # para puts
     def to_s
       puts @magazine + "\n"
       super
@@ -254,6 +255,32 @@ module Bibliografia
   end
   
   # Documento Electrónico Natural
-  class Documento_Electronico_Natural < Documento_Electronico
+  class Documento_Electronico_Natural < Referencia_Natural
+    # Campos
+    attr_accessor :blog
+    
+    # Constructor
+    def initialize &block
+      super &block
+    end
+    
+    # getter+setter de blog
+    def blog(*args)
+      if args.length == 1
+        name, url = args[0][:name], args[0][:url]
+        output = ""
+        output << "Blog " + name if name != nil
+        output << ", Url " + url if url != nil
+        self.blog = output
+      else
+        @blog
+      end
+    end
+    
+    # para puts
+    def to_s
+      puts @blog + "\n"
+      super
+    end
   end
 end
